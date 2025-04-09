@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pixella | About Me ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="mocha"> <!-- Default theme -->
+
+    <div class="container">
+        <header>
+            <h1>pixella</h1>
+            <p class="tagline">Just a cozy corner of the internet~ 🐾</p>
+        </header>
+
+        <div class="top-clock-widget">
+            <p>Current time in this cozy corner:</p>
+            <p id="clock" class="clock-display">Loading...</p>
+        </div>
+
+        <nav class="theme-switcher">
+            <h2>Themes</h2>
+            <button data-theme-name="latte">Latte ☀️</button>
+            <button data-theme-name="frappe">Frappé 🍦</button>
+            <button data-theme-name="macchiato">Macchiato ☕</button>
+            <button data-theme-name="mocha">Mocha 🌙</button>
+            <button data-theme-name="gruvbox-dark">Gruvbox Dark 🟫</button>
+            <button data-theme-name="gruvbox-light">Gruvbox Light 💡</button>
+            <button data-theme-name="nord">Nord ❄️</button>
+        </nav>
+
+        <main>
+            <section class="about-me card">
+                <h2>About Me <span class="icon">🌸</span></h2>
+                <p>Hey there! I'm pixella. Welcome to my little digital space!</p>
+                <p>I'm passionate about [mention a hobby, e.g., digital art, coding, gaming, creating cute things]. I love exploring worlds made of pixels and bringing ideas to life, one tiny square at a time.</p>
+                <p>When I'm not [mention hobby again], you can probably find me [mention another activity, e.g., sipping tea, listening to lofi, cuddling my cat, learning something new].</p>
+                <h3>Things I Like:</h3>
+                <ul>
+                    <li>Cozy Aesthetics ✨</li>
+                    <li>Pixel Art 👾</li>
+                    <li>Cats (obviously!) ᓚᘏᗢ</li>
+                    <li>[Add another interest]</li>
+                    <li>[And another one!]</li>
+                </ul>
+            </section>
+
+            <section class="discord-invite card">
+                <h2>Join the Community <span class="icon">💬</span></h2>
+                <p>Want to hang out, chat about pixels, or share cute cat pics? Join my Discord server!</p>
+                <a href="YOUR_DISCORD_INVITE_LINK_HERE" target="_blank" rel="noopener noreferrer" class="cute-button discord-button">
+                    Join Discord! <span class="discord-icon"></span>
+                </a>
+            </section>
+
+            <section class="widgets card">
+                <h2>Widgets & Fun <span class="icon">💖</span></h2>
+                <div class="widget">
+                    <h3>Pat the Pixel Cat!</h3>
+                    <p>Give the kitty some pats!</p>
+                    <button id="pat-button" class="cute-button">Pat! (ฅ^･ω･^ฅ)</button>
+                    <p>Pats received: <span id="pat-count">0</span></p>
+                </div>
+            </section>
+
+            <section class="favorite-songs card">
+                <h2>Favorite Tunes <span class="icon">🎵</span></h2>
+                <p>Some tracks I've been enjoying lately:</p>
+                <ul>
+                    <li>[Song Title 1] - [Artist Name]</li>
+                    <li>[Song Title 2] - [Artist Name]</li>
+                    <li>[Song Title 3] - [Artist Name]</li>
+                    <li>[Song Title 4] - [Artist Name]</li>
+                    <!-- Add more songs here! You can even make them links -->
+                    <!-- Example: <li><a href="SONG_LINK" target="_blank">[Song Title 5]</a> - [Artist Name]</li> -->
+                </ul>
+            </section>
+
+            <!-- New Favorite Shows Section -->
+            <section class="favorite-shows card">
+                <h2>Favorite Shows <span class="icon">📺</span></h2>
+                <p>Shows I love to binge or rewatch:</p>
+                <ul>
+                    <li>[Show Title 1]</li>
+                    <li>[Show Title 2]</li>
+                    <li>[Show Title 3]</li>
+                    <li>[Show Title 4]</li>
+                    <!-- Add more shows here! -->
+                </ul>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>Styled with <a href="https://github.com/catppuccin/catppuccin" target="_blank" rel="noopener noreferrer">Catppuccin</a>, Gruvbox, and Nord</p>
+            <p>&copy; 2023 pixella</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
