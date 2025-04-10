@@ -1,11 +1,9 @@
-/* Basic Reset & Font */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- Base Styles (Catppuccin Mocha) --- */
 body {
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
@@ -97,21 +95,17 @@ body.nord {
     --button-active-border: #88C0D0; /* nord8 */
 }
 
-/* Apply Theme Variables */
-/* (Applied directly in body and theme-specific selectors) */
-
 .container {
     max-width: 800px;
     padding: 40px 20px;
     text-align: center;
-    display: flex; /* Use flexbox for easier ordering/spacing */
-    flex-direction: column; /* Stack elements vertically */
-    min-height: 80vh; /* Ensure container takes up reasonable height */
+    display: flex; 
+    flex-direction: column; 
+    min-height: 80vh; 
 }
 
-/* Date & Time Styling */
 .datetime {
-    margin-bottom: 30px; /* Keep some space below date/time */
+    margin-bottom: 30px; 
 }
 
 #time {
@@ -126,7 +120,6 @@ body.nord {
     color: var(--date-color);
 }
 
-/* Link Cards Styling */
 .link-cards {
     display: flex;
     flex-wrap: wrap;
@@ -161,35 +154,12 @@ body.nord {
     height: 100%;
 }
 
-/* --- Existing style.css --- */
-/* ... (keep all other styles) ... */
-
-
-/* Link Cards Styling */
-/* ... (keep .link-cards, .card, .card:hover, .card a) ... */
-
-/* UPDATED .card-icon rule */
 .card-icon {
-    /* display: flex; */ /* Removed */
-    /* align-items: center; */ /* Removed */
-    /* justify-content: center; */ /* Removed */
-    /* width: 40px; */ /* Removed */
-    /* height: 40px; */ /* Removed */
-    /* border-radius: 50%; */ /* Removed */
-    /* background-color: var(--card-icon-bg); */ /* Removed - rely on icon shape */
-    color: var(--card-icon-text); /* Keep - Use theme color for icon */
-    font-size: 2.2rem; /* ADJUSTED - Make icons larger */
-    /* font-weight: 600; */ /* Removed - Let icon font handle weight */
-    margin-bottom: 12px; /* ADJUSTED - Slightly more space below icon */
-    line-height: 1; /* Ensure consistent vertical space */
-    display: inline-block; /* Good practice for font icons */
+    color: var(--card-icon-text); 
+    font-size: 2.2rem;
+    margin-bottom: 12px; 
+    display: inline-block; 
 }
-
-/* ... (keep .card-title and other styles) ... */
-
-/* --- End of style.css --- */
-
-
 
 .card-title {
     font-size: 0.9rem;
@@ -200,17 +170,14 @@ body.nord {
     max-width: 100%;
 }
 
-
-/* Theme Switcher Styling (Now at the bottom) */
 .theme-switcher {
-    /* margin-top: 40px; Removed - using flexbox now */
     font-size: 0.9rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    width: 100%; /* Take full width for centering */
-    padding-top: 20px; /* Add space above the buttons */
+    width: 100%; 
+    padding-top: 20px; 
 }
 
 .theme-label {
