@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeButtons = document.querySelectorAll('.theme-button');
     const bodyElement = document.body;
 
-    // --- Date and Time Update ---
     function updateDateTime() {
         const now = new Date();
         const timeString = now.toLocaleTimeString('en-US', { hour12: false });
@@ -16,24 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
     updateDateTime();
     setInterval(updateDateTime, 1000);
 
-    // --- Theme Switching ---
-    const savedTheme = localStorage.getItem('selectedTheme') || 'catppuccin-mocha'; // Default remains Mocha
+    const savedTheme = localStorage.getItem('selectedTheme') || 'catppuccin-mocha';
 
     function applyTheme(themeName) {
-        // Remove all potential theme classes
         bodyElement.classList.remove(
             'catppuccin-mocha',
-            'catppuccin-latte', // Added Latte here
+            'catppuccin-latte', 
             'gruvbox-dark',
             'nord'
         );
 
-        // Add the new theme class
         if (themeName) {
              bodyElement.classList.add(themeName);
         }
 
-        // Update active state on buttons
         themeButtons.forEach(button => {
             if (button.dataset.theme === themeName) {
                 button.classList.add('active');
