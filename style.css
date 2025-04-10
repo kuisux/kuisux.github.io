@@ -1,315 +1,269 @@
-/* --- Catppuccin Color Variables --- */
-/* Reference: https://github.com/catppuccin/catppuccin */
-/* ... (Keep all existing Catppuccin theme definitions: mocha, macchiato, frappe, latte) ... */
-
-body[data-theme='mocha'] {
-    --rosewater: #f5e0dc; --flamingo: #f2cdcd; --pink: #f5c2e7; --mauve: #cba6f7; --red: #f38ba8; --maroon: #eba0ac; --peach: #fab387; --yellow: #f9e2af; --green: #a6e3a1; --teal: #94e2d5; --sky: #89dceb; --sapphire: #74c7ec; --blue: #89b4fa; --lavender: #b4befe; --text: #cdd6f4; --subtext1: #bac2de; --subtext0: #a6adc8; --overlay2: #9399b2; --overlay1: #7f849c; --overlay0: #6c7086; --surface2: #585b70; --surface1: #45475a; --surface0: #313244; --base: #1e1e2e; --mantle: #181825; --crust: #11111b;
-}
-body[data-theme='macchiato'] {
-    --rosewater: #f4dbd6; --flamingo: #f0c6c6; --pink: #f5bde6; --mauve: #c6a0f6; --red: #ed8796; --maroon: #ee99a0; --peach: #f5a97f; --yellow: #eed49f; --green: #a6da95; --teal: #8bd5ca; --sky: #91d7e3; --sapphire: #7dc4e4; --blue: #8aadf4; --lavender: #b7bdf8; --text: #cad3f5; --subtext1: #b8c0e0; --subtext0: #a5adce; --overlay2: #939ab7; --overlay1: #8087a2; --overlay0: #6e738d; --surface2: #5b6078; --surface1: #494d64; --surface0: #363a4f; --base: #24273a; --mantle: #1e2030; --crust: #181926;
-}
-body[data-theme='frappe'] {
-    --rosewater: #f2d5cf; --flamingo: #eebebe; --pink: #f4b8e4; --mauve: #ca9ee6; --red: #e78284; --maroon: #ea999c; --peach: #ef9f76; --yellow: #e5c890; --green: #a6d189; --teal: #81c8be; --sky: #99d1db; --sapphire: #85c1dc; --blue: #8caaee; --lavender: #babbf1; --text: #c6d0f5; --subtext1: #b5bfe2; --subtext0: #a3adc8; --overlay2: #949cbb; --overlay1: #838ba7; --overlay0: #737994; --surface2: #626880; --surface1: #51576d; --surface0: #414559; --base: #303446; --mantle: #292c3c; --crust: #232634;
-}
-body[data-theme='latte'] {
-    --rosewater: #dc8a78; --flamingo: #dd7878; --pink: #ea76cb; --mauve: #8839ef; --red: #d20f39; --maroon: #e64553; --peach: #fe640b; --yellow: #df8e1d; --green: #40a02b; --teal: #179299; --sky: #04a5e5; --sapphire: #209fb5; --blue: #1e66f5; --lavender: #7287fd; --text: #4c4f69; --subtext1: #5c5f77; --subtext0: #6c6f85; --overlay2: #7c7f93; --overlay1: #8c8fa1; --overlay0: #9ca0b0; --surface2: #acb0be; --surface1: #bcc0cc; --surface0: #ccd0da; --base: #eff1f5; --mantle: #e6e9ef; --crust: #dce0e8;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* --- Gruvbox Dark Theme --- */
-/* Reference: https://github.com/morhetz/gruvbox */
-body[data-theme='gruvbox-dark'] {
-    --red: #cc241d; --green: #98971a; --yellow: #d79921; --blue: #458588; --purple: #b16286; --aqua: #689d6a; --orange: #d65d0e;
-    --bg0: #282828; --bg1: #3c3836; --bg2: #504945; --bg3: #665c54; --bg4: #7c6f64;
-    --fg0: #fbf1c7; --fg1: #ebdbb2; --fg2: #d5c4a1; --fg3: #bdae93; --fg4: #a89984;
-    --grey: #928374;
-
-    /* Mapping to existing variables (best effort) */
-    --rosewater: var(--fg3); --flamingo: var(--fg2); --pink: var(--purple); --mauve: var(--purple); --maroon: var(--red); --peach: var(--orange); --teal: var(--aqua); --sky: var(--blue); --sapphire: var(--blue); --lavender: var(--purple);
-    --text: var(--fg1); --subtext1: var(--fg2); --subtext0: var(--fg3);
-    --overlay2: var(--bg4); --overlay1: var(--grey); --overlay0: var(--bg3);
-    --surface2: var(--bg3); --surface1: var(--bg2); --surface0: var(--bg1);
-    --base: var(--bg0); --mantle: #1d2021; /* Slightly darker than bg0 */ --crust: #1d2021;
-}
-
-/* --- Gruvbox Light Theme --- */
-body[data-theme='gruvbox-light'] {
-    --red: #9d0006; --green: #79740e; --yellow: #b57614; --blue: #076678; --purple: #8f3f71; --aqua: #427b58; --orange: #af3a03;
-    --bg0: #fbf1c7; --bg1: #ebdbb2; --bg2: #d5c4a1; --bg3: #bdae93; --bg4: #a89984;
-    --fg0: #282828; --fg1: #3c3836; --fg2: #504945; --fg3: #665c54; --fg4: #7c6f64;
-    --grey: #7c6f64;
-
-    /* Mapping to existing variables (best effort) */
-    --rosewater: var(--fg4); --flamingo: var(--fg3); --pink: var(--purple); --mauve: var(--purple); --maroon: var(--red); --peach: var(--orange); --teal: var(--aqua); --sky: var(--blue); --sapphire: var(--blue); --lavender: var(--purple);
-    --text: var(--fg1); --subtext1: var(--fg2); --subtext0: var(--fg3);
-    --overlay2: var(--bg4); --overlay1: var(--grey); --overlay0: var(--bg3);
-    --surface2: var(--bg2); --surface1: var(--bg1); --surface0: #f9f5d7; /* Lighter surface */
-    --base: var(--bg0); --mantle: #f2e5bc; /* Slightly darker bg */ --crust: var(--bg1);
-}
-
-/* --- Nord Theme --- */
-/* Reference: https://www.nordtheme.com/docs/colors-and-palettes */
-body[data-theme='nord'] {
-    --nord0: #2E3440; --nord1: #3B4252; --nord2: #434C5E; --nord3: #4C566A; /* Polar Night */
-    --nord4: #D8DEE9; --nord5: #E5E9F0; --nord6: #ECEFF4; /* Snow Storm */
-    --nord7: #8FBCBB; --nord8: #88C0D0; --nord9: #81A1C1; --nord10: #5E81AC; /* Frost */
-    --nord11: #BF616A; --nord12: #D08770; --nord13: #EBCB8B; --nord14: #A3BE8C; --nord15: #B48EAD; /* Aurora */
-
-    /* Mapping to existing variables (best effort) */
-    --rosewater: var(--nord5); --flamingo: var(--nord4); --pink: var(--nord15); --mauve: var(--nord15); --red: var(--nord11); --maroon: var(--nord11); --peach: var(--nord12); --yellow: var(--nord13); --green: var(--nord14); --teal: var(--nord7); --sky: var(--nord8); --sapphire: var(--nord9); --blue: var(--nord10); --lavender: var(--nord9);
-    --text: var(--nord4); --subtext1: var(--nord5); --subtext0: var(--nord6);
-    --overlay2: var(--nord3); --overlay1: #616E88; /* Interpolated */ --overlay0: var(--nord2);
-    --surface2: var(--nord3); --surface1: var(--nord2); --surface0: var(--nord1);
-    --base: var(--nord0); --mantle: #292E39; /* Slightly darker */ --crust: #242933; /* Even darker */
-}
-
-
-/* --- Base Styles --- */
-*, *::before, *::after { box-sizing: border-box; }
 body {
-    font-family: 'Nunito', sans-serif;
-    background-color: var(--base);
-    color: var(--text);
-    margin: 0; padding: 20px; line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: background-color 0.3s ease, color 0.3s ease;
+
+    --bg-color: #1e1e2e;
+    --text-color: #cdd6f4;
+    --time-color: #cdd6f4;
+    --date-color: #a6adc8;
+    --card-bg: #181825;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --card-hover-bg: #313244;
+    --card-text-color: #cdd6f4;
+    --card-icon-bg: #313244;
+    --card-icon-text: #89b4fa;
+    --button-bg: #313244;
+    --button-text: #cdd6f4;
+    --button-border: #45475a;
+    --button-active-bg: #89b4fa;
+    --button-active-text: #1e1e2e;
+    --button-active-border: #89b4fa;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
+
+body.catppuccin-latte {
+    --bg-color: #eff1f5;
+    --text-color: #4c4f69;
+    --time-color: #4c4f69;
+    --date-color: #6c6f85;
+    --card-bg: #e6e9ef;
+    --card-shadow: rgba(108, 111, 133, 0.1);
+    --card-hover-bg: #ccd0da;
+    --card-text-color: #4c4f69;
+    --card-icon-bg: #dce0e8;
+    --card-icon-text: #1e66f5;
+    --button-bg: #dce0e8;
+    --button-text: #4c4f69;
+    --button-border: #bcc0cc;
+    --button-active-bg: #1e66f5;
+    --button-active-text: #eff1f5;
+    --button-active-border: #1e66f5;
+}
+
+body.gruvbox-dark {
+    --bg-color: #282828;
+    --text-color: #ebdbb2;
+    --time-color: #ebdbb2;
+    --date-color: #a89984;
+    --card-bg: #3c3836;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --card-hover-bg: #504945;
+    --card-text-color: #ebdbb2;
+    --card-icon-bg: #504945;
+    --card-icon-text: #fabd2f;
+    --button-bg: #504945;
+    --button-text: #ebdbb2;
+    --button-border: #665c54;
+    --button-active-bg: #fabd2f;
+    --button-active-text: #282828;
+    --button-active-border: #fabd2f;
+}
+
+body.nord {
+    --bg-color: #2E3440;
+    --text-color: #ECEFF4;
+    --time-color: #ECEFF4; 
+    --date-color: #D8DEE9; 
+    --card-bg: #3B4252; 
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --card-hover-bg: #434C5E;
+    --card-text-color: #ECEFF4; 
+    --card-icon-bg: #4C566A; 
+    --card-icon-text: #88C0D0;
+    --button-bg: #434C5E; 
+    --button-text: #ECEFF4; 
+    --button-border: #4C566A; 
+    --button-active-bg: #88C0D0; 
+    --button-active-text: #2E3440; 
+    --button-active-border: #88C0D0;
+}
+
 .container {
-    max-width: 800px; margin: 20px auto; padding: 20px;
-    background-color: var(--mantle); border-radius: 15px;
-    border: 1px solid var(--crust); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 80vh; 
 }
 
-/* --- Header --- */
-header { text-align: center; margin-bottom: 15px; border-bottom: 1px dashed var(--surface1); padding-bottom: 20px; }
-header h1 { color: var(--mauve); font-size: 2.8em; margin-bottom: 0; font-weight: 700; }
-header .tagline { color: var(--subtext0); font-size: 1.1em; margin-top: 5px; }
-
-/* --- Top Clock Widget --- */
-.top-clock-widget { text-align: center; margin: 15px 0 25px 0; padding: 10px; background-color: var(--surface0); border-radius: 8px; border: 1px solid var(--surface1); }
-.top-clock-widget p { margin: 5px 0; color: var(--subtext1); }
-.clock-display { font-size: 1.6em; font-weight: bold; color: var(--sky); background-color: transparent; padding: 0; border-radius: 0; display: inline-block; border: none; }
-
-/* --- Theme Switcher --- */
-.theme-switcher { text-align: center; margin-bottom: 30px; padding: 15px; background-color: var(--surface0); border-radius: 10px; }
-.theme-switcher h2 { margin-top: 0; margin-bottom: 15px; color: var(--pink); font-size: 1.2em; }
-.theme-switcher button {
-    background-color: var(--surface1); color: var(--text); border: 1px solid var(--overlay0);
-    padding: 8px 15px; margin: 5px; border-radius: 20px; cursor: pointer;
-    font-family: inherit; font-size: 0.9em; transition: background-color 0.2s ease, transform 0.1s ease;
-    border-left-width: 5px; /* Make space for color indicator */
-}
-.theme-switcher button:hover { background-color: var(--surface2); transform: translateY(-2px); }
-.theme-switcher button:active { transform: translateY(0); background-color: var(--overlay0); }
-
-/* Theme button color indicators */
-.theme-switcher button[data-theme-name='latte'] { border-left-color: var(--peach); }
-.theme-switcher button[data-theme-name='frappe'] { border-left-color: var(--blue); }
-.theme-switcher button[data-theme-name='macchiato'] { border-left-color: var(--peach); }
-.theme-switcher button[data-theme-name='mocha'] { border-left-color: var(--mauve); }
-.theme-switcher button[data-theme-name='gruvbox-dark'] { border-left-color: #d79921; } /* Gruvbox Yellow */
-.theme-switcher button[data-theme-name='gruvbox-light'] { border-left-color: #b57614; } /* Gruvbox Yellow (Light) */
-.theme-switcher button[data-theme-name='nord'] { border-left-color: #88C0D0; } /* Nord Frost */
-
-
-/* --- Main Content --- */
-main { margin-top: 20px; }
-section { margin-bottom: 30px; }
-.card { background-color: var(--surface0); padding: 25px; border-radius: 10px; border: 1px solid var(--surface1); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
-h2 { color: var(--lavender); border-bottom: 2px solid var(--surface2); padding-bottom: 5px; margin-top: 0; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
-h2 .icon { font-size: 1.2em; }
-h3 { color: var(--teal); margin-top: 25px; margin-bottom: 10px; }
-p { color: var(--subtext1); margin-bottom: 15px; }
-ul { list-style: none; padding-left: 0; }
-ul li { color: var(--subtext0); margin-bottom: 8px; position: relative; padding-left: 25px; }
-ul li::before { content: '✨'; position: absolute; left: 0; color: var(--yellow); }
-a { color: var(--blue); text-decoration: none; transition: color 0.2s ease; }
-a:hover { color: var(--sapphire); text-decoration: underline; }
-
-/* --- Section Specific Styles --- */
-.about-me h2 { color: var(--mauve); } /* Keep About Me heading distinct */
-.discord-invite h2 { color: var(--blue); }
-.widgets h2 { color: var(--green); }
-.favorite-songs h2 { color: var(--peach); } /* Give songs section its own color */
-
-/* Style list items in songs section */
-.favorite-songs ul li::before {
-    content: '🎵'; /* Music note icon */
-    color: var(--peach); /* Match heading color */
-}
-.favorite-songs ul li {
-    color: var(--text); /* Use main text color for better readability */
-}
-.favorite-songs ul li a {
-    color: var(--sky); /* Use a different link color if desired */
-}
-.favorite-songs ul li a:hover {
-    color: var(--teal);
+.datetime {
+    margin-bottom: 30px; 
 }
 
-
-/* --- Discord Invite Section --- */
-.discord-invite .cute-button { display: inline-block; margin: 10px auto 0; text-align: center; }
-.discord-button { background-color: var(--blue); color: var(--crust); }
-body[data-theme='latte'] .discord-button,
-body[data-theme='gruvbox-light'] .discord-button { color: var(--base); } /* Adjust text for light themes */
-.discord-button:hover { background-color: var(--sapphire); }
-
-/* --- Widgets --- */
-.widgets .widget { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed var(--surface1); }
-.widgets .widget:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.widgets h3 { color: var(--green); margin-top: 0; }
-
-/* --- Cute Button Base Style --- */
-.cute-button {
-    background-color: var(--pink); color: var(--crust); border: none;
-    padding: 10px 20px; border-radius: 25px; cursor: pointer;
-    font-family: inherit; font-weight: bold; font-size: 1em;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-decoration: none; display: inline-block;
+#time {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--time-color);
+    letter-spacing: 2px;
 }
-/* Adjust button text color for light themes */
-body[data-theme='latte'] .cute-button,
-body[data-theme='gruvbox-light'] .cute-button { color: var(--base); }
 
-.cute-button:hover { background-color: var(--flamingo); transform: scale(1.05); text-decoration: none; }
-.cute-button:active { transform: scale(1); background-color: var(--maroon); }
+#date {
+    font-size: 1.2rem;
+    color: var(--date-color);
+}
 
-#pat-count { font-weight: bold; color: var(--peach); font-size: 1.1em; }
-
-/* --- Footer --- */
-footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px dashed var(--surface1); font-size: 0.9em; color: var(--overlay1); }
-footer p { margin: 5px 0; color: var(--overlay1); }
-footer a { color: var(--overlay2); }
-footer a:hover { color: var(--subtext0); }
-
-/* --- Catppuccin Color Variables --- */
-/* ... (Keep all theme definitions: mocha, macchiato, frappe, latte, gruvbox-dark, gruvbox-light, nord) ... */
-body[data-theme='mocha'] { /* ... */ }
-body[data-theme='macchiato'] { /* ... */ }
-body[data-theme='frappe'] { /* ... */ }
-body[data-theme='latte'] { /* ... */ }
-body[data-theme='gruvbox-dark'] { /* ... */ }
-body[data-theme='gruvbox-light'] { /* ... */ }
-body[data-theme='nord'] { /* ... */ }
-
-/* --- Base Styles --- */
-/* ... (Keep all base styles) ... */
-*, *::before, *::after { /* ... */ }
-body { /* ... */ }
-.container { /* ... */ }
-
-/* --- Header --- */
-/* ... (Keep header styles) ... */
-header { /* ... */ }
-header h1 { /* ... */ }
-header .tagline { /* ... */ }
-
-/* --- Top Clock Widget --- */
-/* ... (Keep clock styles) ... */
-.top-clock-widget { /* ... */ }
-.top-clock-widget p { /* ... */ }
-.clock-display { /* ... */ }
-
-/* --- Theme Switcher --- */
-/* ... (Keep theme switcher styles) ... */
-.theme-switcher { /* ... */ }
-.theme-switcher h2 { /* ... */ }
-.theme-switcher button { /* ... */ }
-.theme-switcher button:hover { /* ... */ }
-.theme-switcher button:active { /* ... */ }
-/* Theme button color indicators */
-.theme-switcher button[data-theme-name='latte'] { /* ... */ }
-.theme-switcher button[data-theme-name='frappe'] { /* ... */ }
-.theme-switcher button[data-theme-name='macchiato'] { /* ... */ }
-.theme-switcher button[data-theme-name='mocha'] { /* ... */ }
-.theme-switcher button[data-theme-name='gruvbox-dark'] { /* ... */ }
-.theme-switcher button[data-theme-name='gruvbox-light'] { /* ... */ }
-.theme-switcher button[data-theme-name='nord'] { /* ... */ }
-
-/* --- Main Content --- */
-/* ... (Keep main content base styles) ... */
-main { /* ... */ }
-section { /* ... */ }
-.card { /* ... */ }
-h2 { /* ... */ }
-h2 .icon { /* ... */ }
-h3 { /* ... */ }
-p { /* ... */ }
-ul { /* ... */ }
-ul li { /* ... */ }
-ul li::before { /* ... */ } /* Default list icon */
-a { /* ... */ }
-a:hover { /* ... */ }
-
-/* --- Section Specific Styles --- */
-.about-me h2 { color: var(--mauve); }
-.discord-invite h2 { color: var(--blue); }
-.widgets h2 { color: var(--green); }
-.favorite-songs h2 { color: var(--peach); }
-.favorite-shows h2 { color: var(--teal); }
-.social-links h2 { color: var(--red); } /* New: Give social links section its own color */
-
-/* Style list items in songs section */
-.favorite-songs ul li::before { content: '🎵'; color: var(--peach); }
-.favorite-songs ul li { color: var(--text); }
-.favorite-songs ul li a { color: var(--sky); }
-.favorite-songs ul li a:hover { color: var(--teal); }
-
-/* Style list items in shows section */
-.favorite-shows ul li::before { content: '📺'; color: var(--teal); }
-.favorite-shows ul li { color: var(--text); }
-
-/* Style list items in social links section */
-.social-links ul {
-    /* Optional: uncomment for horizontal layout */
-    /* display: flex;
+.link-cards {
+    display: flex;
     flex-wrap: wrap;
-    gap: 10px 20px; /* row-gap column-gap */
-    /* padding-left: 0; /* Remove padding if using flex */
-}
-.social-links ul li::before {
-    content: '🔗'; /* Link icon */
-    color: var(--red); /* Match heading color */
-}
-.social-links ul li {
-    color: var(--subtext0); /* Slightly dimmer text for links */
-    /* Remove left padding if using flex and ::before */
-    /* padding-left: 0; */
-}
-.social-links ul li a {
-    color: var(--lavender); /* Use a distinct link color */
-    font-weight: 500; /* Slightly bolder links */
-}
-.social-links ul li a:hover {
-    color: var(--pink);
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: auto; 
+    padding-bottom: 20px;
 }
 
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--card-shadow);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    width: 150px;
+    overflow: hidden;
+}
 
-/* --- Discord Invite Section --- */
-/* ... (Keep discord styles) ... */
-.discord-invite .cute-button { /* ... */ }
-.discord-button { /* ... */ }
-body[data-theme='latte'] .discord-button,
-body[data-theme='gruvbox-light'] .discord-button { /* ... */ }
-.discord-button:hover { /* ... */ }
+.card:hover {
+    transform: translateY(-5px);
+    background-color: var(--card-hover-bg);
+}
 
-/* --- Widgets --- */
-/* ... (Keep widget styles) ... */
-.widgets .widget { /* ... */ }
-.widgets .widget:last-child { /* ... */ }
-.widgets h3 { /* ... */ }
+.card a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    text-decoration: none;
+    color: var(--card-text-color);
+    height: 100%;
+}
 
-/* --- Cute Button Base Style --- */
-/* ... (Keep button styles) ... */
-.cute-button { /* ... */ }
-body[data-theme='latte'] .cute-button,
-body[data-theme='gruvbox-light'] .cute-button { /* ... */ }
-.cute-button:hover { /* ... */ }
-.cute-button:active { /* ... */ }
-#pat-count { /* ... */ }
+.card-icon {
+    color: var(--card-icon-text); 
+    font-size: 2.2rem;
+    margin-bottom: 12px; 
+    display: inline-block; 
+}
 
-/* --- Footer --- */
-/* ... (Keep footer styles) ... */
-footer { /* ... */ }
-footer p { /* ... */ }
-footer a { /* ... */ }
-footer a:hover { /* ... */ }
+.card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.theme-switcher {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%; 
+    padding-top: 20px; 
+}
+
+.theme-label {
+    margin-right: 8px;
+    color: var(--date-color);
+}
+
+.theme-button {
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--button-border);
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-button:hover {
+    border-color: var(--card-icon-text);
+    box-shadow: 0 0 0 1px var(--card-icon-text);
+}
+
+.theme-button.active {
+    background-color: var(--button-active-bg);
+    color: var(--button-active-text);
+    border-color: var(--button-active-border);
+    font-weight: 600;
+}
+
+.theme-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--card-icon-text);
+}
+
+/* Add these styles to your style.css file */
+
+.search-container {
+    margin: 25px 0; /* Add some vertical spacing */
+    text-align: center; /* Center the form horizontally */
+}
+
+.search-form {
+    display: inline-flex; /* Align input and button side-by-side */
+    align-items: center; /* Vertically align items in the flex container */
+    border: 1px solid var(--overlay0, #6c7086); /* Use theme variable or fallback */
+    border-radius: 25px; /* Make it rounded */
+    padding: 5px 5px 5px 15px; /* Padding inside the form (more on left for text) */
+    background-color: var(--surface0, #313244); /* Use theme variable or fallback */
+    max-width: 500px; /* Limit maximum width */
+    width: 90%; /* Responsive width */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional subtle shadow */
+}
+
+.search-input {
+    flex-grow: 1; /* Allow input to take available space */
+    border: none; /* Remove default border */
+    outline: none; /* Remove focus outline */
+    background-color: transparent; /* Inherit background from form */
+    color: var(--text, #cdd6f4); /* Use theme variable or fallback */
+    font-size: 1rem; /* Adjust font size as needed */
+    padding: 8px 0; /* Vertical padding */
+}
+
+.search-input::placeholder {
+    color: var(--subtext0, #a6adc8); /* Lighter color for placeholder */
+    opacity: 0.8;
+}
+
+.search-button {
+    border: none;
+    background-color: transparent;
+    color: var(--text, #cdd6f4); /* Use theme variable or fallback */
+    padding: 8px 10px; /* Padding around the icon */
+    cursor: pointer;
+    font-size: 1.1rem; /* Icon size */
+    border-radius: 50%; /* Make button area circular */
+    margin-left: 5px; /* Space between input and button */
+    display: flex; /* Needed for centering icon if padding added */
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background-color: var(--surface1, #45475a); /* Slight hover effect */
+}
+
+/* Optional: Style focus state */
+.search-form:focus-within {
+  border-color: var(--blue, #89b4fa); /* Highlight border on focus */
+  box-shadow: 0 0 0 2px var(--blue, #89b4fa80); /* Add focus ring */
+}
+
