@@ -10,66 +10,77 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     </head>
-    
+
 <body>
     <div class="container">
 
-        
+
         <div class="datetime">
             <div id="time">--:--:--</div>
             <div id="date">----------</div>
         </div>
 
-                <!-- Link Cards -->
-                <div class="link-cards">
-                    <div class="card">
-                        <a href="https://www.google.com" target="_blank">
-                            <i class="bi bi-google card-icon"></i> 
-                            <span class="card-title">Google</span>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="https://www.github.com" target="_blank">
-                            <i class="bi bi-github card-icon"></i> 
-                            <span class="card-title">GitHub</span>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="https://www.youtube.com" target="_blank">
-                            <i class="bi bi-youtube card-icon"></i> 
-                            <span class="card-title">YouTube</span>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="https://gemini.google.com/app" target="_blank">
-                            <i class="bi bi-stars card-icon"></i> 
-                            <span class="card-title">gemini</span>
-                        </a>
-                    </div>
-                     <div class="card">
-                        <a href="https://mail.google.com" target="_blank">
-                             <i class="bi bi-envelope-fill card-icon"></i> 
-                            <span class="card-title">Gmail</span>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="https://devdocs.io/" target="_blank">
-                            <i class="bi bi-search card-icon"></i> 
-                            <span class="card-title">devdocs</span>
-                        </a>
-                    </div>
-                </div>
-        
+        <!-- START: Added Google Search Form -->
+        <div class="search-container">
+            <form action="https://www.google.com/search" method="GET" target="_blank" class="search-form">
+                <input type="text" name="q" placeholder="Search Google" class="search-input" required autocomplete="off">
+                <button type="submit" class="search-button" aria-label="Search">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+        </div>
+        <!-- END: Added Google Search Form -->
+
+        <!-- Link Cards -->
+        <div class="link-cards">
+            <div class="card">
+                <a href="https://www.google.com" target="_blank">
+                    <i class="bi bi-google card-icon"></i>
+                    <span class="card-title">Google</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://www.github.com" target="_blank">
+                    <i class="bi bi-github card-icon"></i>
+                    <span class="card-title">GitHub</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://www.youtube.com" target="_blank">
+                    <i class="bi bi-youtube card-icon"></i>
+                    <span class="card-title">YouTube</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://gemini.google.com/app" target="_blank">
+                    <i class="bi bi-stars card-icon"></i>
+                    <span class="card-title">gemini</span>
+                </a>
+            </div>
+             <div class="card">
+                <a href="https://mail.google.com" target="_blank">
+                     <i class="bi bi-envelope-fill card-icon"></i>
+                    <span class="card-title">Gmail</span>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://devdocs.io/" target="_blank">
+                    <i class="bi bi-search card-icon"></i>
+                    <span class="card-title">devdocs</span>
+                </a>
+            </div>
+        </div>
+
 
         <div class="theme-switcher">
             <span class="theme-label">Theme:</span>
             <button class="theme-button" data-theme="catppuccin-mocha">Mocha</button>
-            <button class="theme-button" data-theme="catppuccin-latte">Latte</button> 
+            <button class="theme-button" data-theme="catppuccin-latte">Latte</button>
             <button class="theme-button" data-theme="gruvbox-dark">Gruvbox</button>
             <button class="theme-button" data-theme="nord">Nord</button>
-            
 
-    </div> 
+
+    </div>
 
     <script src="script.js"></script>
 </body>
