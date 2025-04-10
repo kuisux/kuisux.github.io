@@ -208,3 +208,62 @@ body.nord {
     outline: none;
     box-shadow: 0 0 0 2px var(--card-icon-text);
 }
+
+/* Add these styles to your style.css file */
+
+.search-container {
+    margin: 25px 0; /* Add some vertical spacing */
+    text-align: center; /* Center the form horizontally */
+}
+
+.search-form {
+    display: inline-flex; /* Align input and button side-by-side */
+    align-items: center; /* Vertically align items in the flex container */
+    border: 1px solid var(--overlay0, #6c7086); /* Use theme variable or fallback */
+    border-radius: 25px; /* Make it rounded */
+    padding: 5px 5px 5px 15px; /* Padding inside the form (more on left for text) */
+    background-color: var(--surface0, #313244); /* Use theme variable or fallback */
+    max-width: 500px; /* Limit maximum width */
+    width: 90%; /* Responsive width */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional subtle shadow */
+}
+
+.search-input {
+    flex-grow: 1; /* Allow input to take available space */
+    border: none; /* Remove default border */
+    outline: none; /* Remove focus outline */
+    background-color: transparent; /* Inherit background from form */
+    color: var(--text, #cdd6f4); /* Use theme variable or fallback */
+    font-size: 1rem; /* Adjust font size as needed */
+    padding: 8px 0; /* Vertical padding */
+}
+
+.search-input::placeholder {
+    color: var(--subtext0, #a6adc8); /* Lighter color for placeholder */
+    opacity: 0.8;
+}
+
+.search-button {
+    border: none;
+    background-color: transparent;
+    color: var(--text, #cdd6f4); /* Use theme variable or fallback */
+    padding: 8px 10px; /* Padding around the icon */
+    cursor: pointer;
+    font-size: 1.1rem; /* Icon size */
+    border-radius: 50%; /* Make button area circular */
+    margin-left: 5px; /* Space between input and button */
+    display: flex; /* Needed for centering icon if padding added */
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background-color: var(--surface1, #45475a); /* Slight hover effect */
+}
+
+/* Optional: Style focus state */
+.search-form:focus-within {
+  border-color: var(--blue, #89b4fa); /* Highlight border on focus */
+  box-shadow: 0 0 0 2px var(--blue, #89b4fa80); /* Add focus ring */
+}
+
