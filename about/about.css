@@ -1,0 +1,213 @@
+/* Styles specific to the About Me page */
+
+/* Basic Layout - REMOVED background, shadow, radius */
+.about-container {
+    max-width: 900px; /* Still constrain width */
+    margin: 2rem auto; /* Still center the block */
+    padding: 1rem 2rem; /* Keep padding for spacing */
+    /* background-color: var(--surface0, #333); */ /* REMOVED */
+    /* border-radius: 8px; */ /* REMOVED */
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */ /* REMOVED */
+    color: var(--text, #eee); /* Keep text color based on theme */
+}
+
+/* Page Header Styling (Keep as is) */
+.page-header {
+    text-align: center;
+    margin: 2rem 1rem 1rem 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed var(--overlay0, #666);
+    position: relative;
+}
+
+.page-header h1 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--mauve, #cba6f7);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.icon-header {
+    margin-right: 10px;
+    color: var(--pink, #f5c2e7);
+}
+
+/* Back Home Link (Keep as is) */
+.back-home-link {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    text-decoration: none;
+    color: var(--subtext0, #aaa);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-home-link:hover {
+    background-color: var(--surface1, #444);
+    color: var(--text, #eee);
+}
+
+.back-home-link i {
+    margin-right: 5px;
+}
+
+
+/* Intro Section (Keep as is) */
+.about-intro {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--overlay0, #666);
+}
+
+/* --- MODIFIED Mascot Styling --- */
+.about-mascot {
+    /* Define width and calculate height for 9:16 */
+    width: 150px; /* Or your desired width */
+    height: calc(150px * 16 / 9); /* Calculate height based on width for 9:16 */
+
+    /* Make it rectangular and handle image fitting */
+    border-radius: 8px; /* Optional: slightly rounded corners */
+    object-fit: cover; /* Crop image to fit dimensions without stretching */
+    object-position: center; /* Center the image within the frame */
+
+    /* REMOVED circular styles */
+    /* border-radius: 50%; */
+    /* border: 4px solid var(--mauve, #cba6f7); */
+    /* background-color: var(--base, #222); */
+    /* padding: 5px; */
+}
+/* --- End MODIFIED Mascot Styling --- */
+
+
+.about-intro h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--green, #a6e3a1);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.about-intro p {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--subtext1, #ccc);
+}
+
+/* Waving Hand Animation (Keep as is) */
+.wave {
+    display: inline-block;
+    animation: wave-animation 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
+}
+
+/* Details Section (Keep as is) */
+.about-details h3 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--blue, #89b4fa);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 2px dotted var(--overlay1, #777);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.about-details p,
+.about-details ul {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.about-details ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-details li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.list-icon {
+    margin-right: 10px;
+    color: var(--teal, #94e2d5);
+    width: 20px;
+    text-align: center;
+}
+
+/* Social Links specific adjustments (Keep as is) */
+.about-social-links {
+    margin-top: 1.5rem;
+    justify-content: flex-start;
+}
+
+/* Responsive Adjustments (Keep as is, but check mascot appearance) */
+@media (max-width: 768px) {
+    .about-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    /* Adjust mascot size/margins if needed for stacked view */
+    .about-mascot {
+        /* You might want to adjust width/height or margins here */
+        margin-bottom: 1rem;
+        /* Example: make it slightly smaller on mobile stack */
+        /* width: 120px; */
+        /* height: calc(120px * 16 / 9); */
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+     .back-home-link {
+        position: static;
+        transform: none;
+        display: block;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .about-intro h2 {
+        font-size: 1.3rem;
+    }
+
+     /* Further adjustments for very small screens if needed */
+    .about-mascot {
+         /* width: 100px; */
+         /* height: calc(100px * 16 / 9); */
+    }
+}

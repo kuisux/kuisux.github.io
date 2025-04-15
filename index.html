@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Pixella's Corner!</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add cute font, e.g., from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add icon library, e.g., Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-catppuccin-mocha"> <!-- Default theme -->
+
+    <!-- ===== Theme Switcher ===== -->
+    <div class="theme-switcher">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+            <option value="theme-catppuccin-mocha">Catppuccin Mocha</option>
+            <option value="theme-catppuccin-macchiato">Catppuccin Macchiato</option>
+            <option value="theme-catppuccin-frappe">Catppuccin Frappe</option>
+            <option value="theme-catppuccin-latte">Catppuccin Latte</option>
+            <option value="theme-gruvbox-dark">Gruvbox Dark</option>
+            <option value="theme-gruvbox-light">Gruvbox Light</option>
+            <option value="theme-nord">Nord</option>
+            <option value="theme-everforest">Everforest</option>
+            <option value="theme-dracula">Dracula</option>
+        </select>
+    </div>
+
+    <!-- ===== Header / Hero Section ===== -->
+    <header class="hero">
+        <div class="hero-content">
+            <!-- Cute Animated Mascot/Logo -->
+            <img src="images/pixella-mascot-idle.png" alt="Pixella Mascot" class="mascot-animation">
+
+            <!-- Animated Name -->
+            <h1 class="glitchy-pixel-text">kuisux</h1>
+            <p class="tagline">Your friendly neighborhood pixel pusher & digital adventurer! ✨</p>
+
+            <!-- Social Links with Hover Animations -->
+            <div class="social-links">
+                <a href="#" aria-label="Twitch" class="social-icon"><i class="fab fa-twitch"></i></a>
+                <a href="#" aria-label="YouTube" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <!-- Add more as needed -->
+            </div>
+        </div>
+        <!-- Subtle Background Animation -->
+        <div class="animated-background"></div>
+    </header>
+
+    <!-- ===== Navigation Cards Section ===== -->
+    <main class="card-container">
+        <h2>Explore My World!</h2>
+        <div class="card-grid">
+            <!-- Card Example 1: About Me -->
+            <a href="/about/about.html" class="card card-bounce">
+                <i class="fas fa-user-astronaut card-icon"></i>
+                <h3>About Me</h3>
+                <p>Learn more about the person behind the pixels!</p>
+            </a>
+
+            <!-- Card Example 2: Gallery -->
+            <a href="/gallery" class="card card-bounce">
+                <i class="fab fa-discord card-icon"></i>
+                <h3>Discord Server</h3>
+                <p>Join my discord server</p>
+            </a>
+
+            <!-- Card Example 3: Stream -->
+            <a href="/stream" class="card card-bounce">
+                <i class="fas fa-video card-icon"></i>
+                <h3>livestream</h3>
+                <p>Catch me live or view the schedule!</p>
+            </a>
+
+            <!-- Card Example 4: Blog/Updates -->
+            <a href="/blog" class="card card-bounce">
+                <i class="fas fa-feather-alt card-icon"></i>
+                <h3>Blog & Updates</h3>
+                <p>Latest news, thoughts, and project updates.</p>
+            </a>
+
+             <!-- Card Example 6: Contact -->
+            <a href="/contact" class="card card-bounce">
+                <i class="fas fa-envelope-open-text card-icon"></i>
+                <h3>Contact</h3>
+                <p>Get in touch for collabs or commissions.</p>
+            </a>
+        </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <p>&copy; <span id="year"></span> Kuisux. All pixels reserved.</p>
+        <!-- Maybe a small animated pixel heart? -->
+        <span class="pixel-heart">❤️</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

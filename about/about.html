@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Pixella | Pixella's Corner</title>
+
+    <!-- Main Stylesheet (relative path) -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- About Page Specific Stylesheet -->
+    <link rel="stylesheet" href="about.css">
+
+    <!-- Fonts (same as index) -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icon library (same as index) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-catppuccin-mocha"> <!-- Default theme - controlled by script.js -->
+
+    <!-- ===== Theme Switcher (Same as index) ===== -->
+    <div class="theme-switcher">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+            <option value="theme-catppuccin-mocha">Catppuccin Mocha</option>
+            <option value="theme-catppuccin-macchiato">Catppuccin Macchiato</option>
+            <option value="theme-catppuccin-frappe">Catppuccin Frappe</option>
+            <option value="theme-catppuccin-latte">Catppuccin Latte</option>
+            <option value="theme-gruvbox-dark">Gruvbox Dark</option>
+            <option value="theme-gruvbox-light">Gruvbox Light</option>
+            <option value="theme-nord">Nord</option>
+            <option value="theme-everforest">Everforest</option>
+            <option value="theme-dracula">Dracula</option>
+        </select>
+    </div>
+
+    <!-- ===== Page Header ===== -->
+    <header class="page-header">
+         <!-- Link back home -->
+         <a href="../index.html" class="back-home-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+         <h1><i class="fas fa-user-astronaut icon-header"></i> About Me</h1>
+    </header>
+
+    <!-- ===== Main Content Section ===== -->
+    <main class="about-container">
+
+        <section class="about-intro">
+            <img src="../images/pixella-mascot-idle.png" alt="Pixella Waving" class="about-mascot">
+            <div>
+                <h2>Hey there, I'm Pixella! <span class="wave">👋</span></h2>
+                <p>Your friendly neighborhood pixel pusher, digital adventurer, and maybe a *little* bit obsessed with retro games and cozy aesthetics!</p>
+                <p>Welcome to my little corner of the internet. Here's a bit more about the person behind the pixels.</p>
+            </div>
+        </section>
+
+        <section class="about-details">
+            <h3>My Journey</h3>
+            <p>I started my digital journey fueled by caffeine and a love for all things creative. From tinkering with code to crafting pixel art, I find joy in bringing ideas to life on the screen. Whether I'm streaming my latest gaming adventure, designing cute assets, or just sharing my thoughts, I aim to create a fun and welcoming space.</p>
+            <!-- Add more paragraphs as needed -->
+
+            <h3>What I Love</h3>
+            <ul>
+                <li><i class="fas fa-gamepad list-icon"></i> Retro & Indie Games</li>
+                <li><i class="fas fa-palette list-icon"></i> Pixel Art & Digital Illustration</li>
+                <li><i class="fas fa-mug-hot list-icon"></i> Cozy Vibes & Warm Drinks</li>
+                <li><i class="fas fa-code list-icon"></i> Creative Coding & Web Tinkering</li>
+                <li><i class="fas fa-cat list-icon"></i> Cats (obviously!)</li>
+            </ul>
+
+            <h3>Find Me Elsewhere</h3>
+             <p>Don't be a stranger! You can catch me streaming, sharing art, or just chatting on these platforms:</p>
+             <!-- Re-using social links structure from index.html for consistency -->
+             <div class="social-links about-social-links">
+                <a href="#" aria-label="Twitch" class="social-icon"><i class="fab fa-twitch"></i></a>
+                <a href="#" aria-label="YouTube" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <!-- Add more as needed -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer (Same as index) ===== -->
+    <footer>
+        <p>&copy; <span id="year"></span> Pixella. All pixels reserved.</p>
+        <span class="pixel-heart">❤️</span>
+    </footer>
+
+    <!-- Main Script (for theme switcher, footer year - relative path) -->
+    <script src="../script.js"></script>
+    <!-- About Page Specific Script -->
+    <script src="about.js"></script>
+</body>
+</html>
