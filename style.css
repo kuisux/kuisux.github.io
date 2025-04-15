@@ -1,18 +1,16 @@
 /* --- Base Styles & Variables --- */
 :root {
-    /* Default to Catppuccin Mocha - these will be overridden by theme classes */
     --bg-color: #1E1E2E;
     --fg-color: #CDD6F4;
     --card-bg: #181825;
     --border-color: #313244;
-    --accent-color: #F5C2E7; /* Pink */
+    --accent-color: #F5C2E7;
     --accent-hover: #E8A2DC;
     --text-muted: #A6ADC8;
 
     --font-primary: 'Poppins', sans-serif;
-    --font-display: 'Press Start 2P', cursive; /* Pixel font */
+    --font-display: 'Press Start 2P', cursive;
 
-    /* Animation Timing */
     --transition-speed: 0.3s;
 }
 
@@ -56,7 +54,7 @@
 .theme-dracula {
     --bg-color: #282A36; --fg-color: #F8F8F2; --card-bg: #44475A;
     --border-color: #6272A4; --accent-color: #BD93F9; /* Purple */
-    --accent-hover: #A981E1; --text-muted: #ABB2BF; /* Adjusted for contrast */
+    --accent-hover: #A981E1; --text-muted: #ABB2BF;
 }
 
 /* --- General Styles --- */
@@ -67,11 +65,11 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
-    font-family: var(--font-display); /* Use pixel font for headings */
+    font-family: var(--font-display);
     color: var(--accent-color);
     text-align: center;
 }
@@ -91,7 +89,7 @@ a:hover {
 
 /* --- Theme Switcher --- */
 .theme-switcher {
-    position: fixed; /* Or absolute */
+    position: fixed;
     top: 15px;
     right: 15px;
     z-index: 1000;
@@ -123,17 +121,16 @@ a:hover {
     justify-content: center;
     text-align: center;
     padding: 20px;
-    position: relative; /* For background animation */
-    overflow: hidden; /* Keep background elements contained */
+    position: relative;
+    overflow: hidden;
 }
 .hero-content {
-    z-index: 2; /* Above background */
+    z-index: 2;
     min-height: 55vh;
 }
 .hero h1 {
-    font-size: 3rem; /* Adjust as needed */
+    font-size: 3rem;
     margin-bottom: 0.5rem;
-    /* Animation applied via class */
 }
 .hero .tagline {
     font-size: 1.2rem;
@@ -148,11 +145,11 @@ a:hover {
 .social-icon {
     font-size: 1.8rem;
     margin: 0 10px;
-    display: inline-block; /* Needed for transform */
+    display: inline-block;
     transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 .social-icon:hover {
-    transform: scale(1.2) rotate(5deg); /* Cute bounce/tilt */
+    transform: scale(1.2) rotate(5deg);
     color: var(--accent-hover);
 }
 
@@ -180,8 +177,8 @@ a:hover {
     padding: 25px;
     text-align: center;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    display: block; /* Make the whole card clickable */
-    color: var(--fg-color); /* Ensure text color resets */
+    display: block;
+    color: var(--fg-color);
 }
 .card:hover {
     transform: translateY(-5px);
@@ -196,12 +193,12 @@ a:hover {
     transition: transform var(--transition-speed) ease;
 }
 .card:hover .card-icon {
-    transform: scale(1.1); /* Icon grows slightly on card hover */
+    transform: scale(1.1);
 }
 .card h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
-    color: var(--accent-color); /* Ensure heading color */
+    color: var(--accent-color);
 }
 .card p {
     font-size: 0.95rem;
@@ -220,9 +217,8 @@ footer {
 
 /* --- ANIMATIONS --- */
 
-/* 1. Mascot Animation (Simple Bobbing) */
 .mascot-animation {
-    width: 500px; /* Adjust size */
+    width: 500px; 
     height: auto;
     margin-bottom: 1rem;
     animation: bobbing 3s ease-in-out infinite;
@@ -231,16 +227,12 @@ footer {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
-/* Add hover effect? Maybe change src to a waving version? */
 .mascot-animation:hover {
-    /* Example: src change via JS or just a scale */
     transform: scale(1.05);
 }
 
-/* 2. Glitchy/Pixel Text Animation for Name */
 .glitchy-pixel-text {
     animation: glitch 2s linear infinite alternate-reverse;
-    /* Optional: Add pixelated font */
     font-family: var(--font-display);
 }
 @keyframes glitch {
@@ -248,15 +240,11 @@ footer {
   4%, 60% { transform: translate(-2px, 0) skew(0deg); }
   62% { transform: translate(0, 0) skew(5deg); }
 }
-/* Alternative: Pixelate-in effect (more complex, might need JS) */
 
-/* 3. Subtle Animated Background (Floating Pixels/Stars) */
 .animated-background {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 1;
-    /* Use pseudo-elements or multiple divs for particles */
-    /* Example using pseudo-elements (very basic) */
 }
 .animated-background::before,
 .animated-background::after {
@@ -273,20 +261,16 @@ footer {
     left: 20%;
     animation-duration: 15s;
     animation-delay: 2s;
-    background: var(--fg-color); /* Different color */
+    background: var(--fg-color); 
     opacity: 0.2;
 }
-/* Add more pseudo-elements or divs for more particles */
 @keyframes float {
     0% { transform: translateY(100vh) translateX(0vw) scale(0.5); }
     100% { transform: translateY(-10vh) translateX(5vw) scale(1); }
-    /* Adjust translateX for more horizontal movement */
 }
 
-/* 4. Card Bounce on Hover (Alternative to translateY) */
 .card-bounce:hover {
     animation: bounce 0.5s ease;
-    /* Keep other hover effects if desired */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-color: var(--accent-color);
 }
@@ -295,12 +279,11 @@ footer {
     50% { transform: translateY(-8px); }
 }
 
-/* 5. Pixel Heart Beat */
 .pixel-heart {
-    display: inline-block; /* Needed for animation */
+    display: inline-block; 
     animation: heartbeat 1.5s ease-in-out infinite;
-    color: var(--accent-color); /* Use theme accent */
-    font-size: 1.1em; /* Slightly larger */
+    color: var(--accent-color); 
+    font-size: 1.1em; 
 }
 @keyframes heartbeat {
     0%, 100% { transform: scale(1); }
@@ -311,7 +294,7 @@ footer {
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.5rem; }
     .hero .tagline { font-size: 1rem; }
-    .card-grid { grid-template-columns: 1fr; } /* Stack cards */
+    .card-grid { grid-template-columns: 1fr; }
     .theme-switcher { font-size: 0.7em; padding: 3px 6px; }
 }
 
