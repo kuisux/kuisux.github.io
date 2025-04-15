@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Updates & Blog - Kuisux</title>
 
-    <!-- Shared Styles & Fonts (relative path to parent directory) -->
+    <!-- Shared Styles & Fonts  -->
     <link rel="stylesheet" href="../style.css"> <!-- Link main style FIRST -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,38 +13,29 @@
     <!-- Blog Specific Styles (loads AFTER main styles) -->
     <link rel="stylesheet" href="blog.css">
 
-    <!-- Add this style to ensure the link covers the card and removes default link styling -->
     <style>
         a.blog-card-link {
-            display: block; /* Make the link behave like a block element */
-            text-decoration: none; /* Remove underline */
-            color: inherit; /* Inherit text color from parent */
-            border-radius: var(--card-border-radius, 10px); /* Inherit border-radius if card has one */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Match card hover effects */
+            display: block; 
+            text-decoration: none;
+            color: inherit;
+            border-radius: var(--card-border-radius, 10px);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         a.blog-card-link:hover,
         a.blog-card-link:focus {
-            /* Optional: Add hover effect directly to the link if needed,
-               or ensure the .blog-card styles apply correctly */
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
-        /* Ensure the article inside doesn't interfere with the link area */
         a.blog-card-link article {
-            pointer-events: none; /* Make elements inside the article non-interactive for clicks */
+            pointer-events: none; 
         }
-        /* Re-enable pointer events for interactive elements inside if needed later */
-        /* a.blog-card-link article a,
-           a.blog-card-link article button {
-            pointer-events: auto;
-        } */
 
     </style>
 
 </head>
 <body class="theme-catppuccin-mocha"> <!-- Default theme -->
 
-    <!-- ===== Theme Switcher (Copied from index.html) ===== -->
+    <!-- ===== Theme Switcher ===== -->
     <div class="theme-switcher">
         <label for="theme-select">Theme:</label>
         <select id="theme-select">
@@ -62,14 +53,10 @@
 
     <!-- ===== Simple Header for Blog ===== -->
     <header class="blog-header">
-         <!-- Optional: Add mascot/logo back if desired -->
-         <img src="../images/pixella-mascot-idle.png" alt="Pixella Mascot" class="blog-mascot"> 
         <h1>Kuisux's Blog & Updates</h1>
         <nav>
             <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back Home</a>
         </nav>
-         <!-- Optional: Add animated background back if desired -->
-         <!-- <div class="animated-background"></div> -->
     </header>
 
     <!-- ===== Blog Posts Section ===== -->
@@ -77,9 +64,9 @@
         <h2>Latest Posts</h2>
         <div class="blog-grid">
 
-            <!-- Blog Post Card 1 (Example) - Now Wrapped in <a> -->
+            <!-- Blog Post Card 1 -->
             <a href="https://kuisux.github.io" class="blog-card-link"> <!-- <<< Added Link Wrapper -->
-                <article class="blog-card"> <!-- <<< Article is now INSIDE the link -->
+                <article class="blog-card"> 
                     <img src="../images/website.png" alt="Blog Post 1 Image" class="blog-card-image">
                     <div class="blog-card-content">
                         <p class="blog-card-date">October 26, 2023</p>
@@ -89,9 +76,9 @@
                 </article>
             </a> <!-- <<< Closing Link Wrapper -->
 
-            <!-- Blog Post Card 2 (Example) - Now Wrapped in <a> -->
+            <!-- Blog Post Card 2 -->
             <a href="https://github.com/kuisux/kuisux.github.io/blob/main/images/streamSchedule.png" class="blog-card-link"> <!-- <<< Added Link Wrapper -->
-                 <article class="blog-card"> <!-- <<< Article is now INSIDE the link -->
+                 <article class="blog-card"> 
                     <img src="../images/streamSchedule.png" alt="Blog Post 2 Image" class="blog-card-image">
                      <div class="blog-card-content">
                         <p class="blog-card-date">October 20, 2023</p>
@@ -101,26 +88,16 @@
                 </article>
             </a> <!-- <<< Closing Link Wrapper -->
 
-            <!-- Add more blog posts following the same pattern:
-            <a href="/path/to/your/post.html" class="blog-card-link">
-                <article class="blog-card">
-                    ... content ...
-                </article>
-            </a>
-            -->
-
         </div>
     </main>
 
-    <!-- ===== Footer (Copied from index.html) ===== -->
+    <!-- ===== Footer ===== -->
     <footer>
         <p>&copy; <span id="year"></span> Kuisux. All pixels reserved.</p>
         <span class="pixel-heart">❤️</span>
     </footer>
 
-    <!-- Shared Script (relative path to parent directory) - for theme switcher, footer year etc. -->
     <script src="../script.js"></script>
-    <!-- Blog Specific Script -->
     <script src="blog.js"></script>
 </body>
 </html>
