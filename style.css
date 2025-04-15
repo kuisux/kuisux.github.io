@@ -17,8 +17,7 @@
 }
 
 /* --- Theme Definitions --- */
-/* Add classes for EACH theme, overriding the :root variables */
-.theme-catppuccin-mocha { /* Already default */ }
+
 .theme-catppuccin-macchiato {
     --bg-color: #24273A; --fg-color: #CAD3F5; --card-bg: #1E2030;
     --border-color: #363A4F; --accent-color: #F4DBD6; /* Peach */
@@ -129,6 +128,7 @@ a:hover {
 }
 .hero-content {
     z-index: 2; /* Above background */
+    min-height: 55vh;
 }
 .hero h1 {
     font-size: 3rem; /* Adjust as needed */

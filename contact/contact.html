@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Kuisux</title>
+
+    <!-- Shared Styles & Fonts (relative path to parent directory) -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link main style FIRST -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Contact Specific Styles (loads AFTER main styles) -->
+    <link rel="stylesheet" href="contact.css">
+
+</head>
+<body class="theme-catppuccin-mocha"> <!-- Default theme -->
+
+    <!-- ===== Theme Switcher (Copied from index.html) ===== -->
+    <div class="theme-switcher">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+            <option value="theme-catppuccin-mocha">Catppuccin Mocha</option>
+            <option value="theme-catppuccin-macchiato">Catppuccin Macchiato</option>
+            <option value="theme-catppuccin-frappe">Catppuccin Frappe</option>
+            <option value="theme-catppuccin-latte">Catppuccin Latte</option>
+            <option value="theme-gruvbox-dark">Gruvbox Dark</option>
+            <option value="theme-gruvbox-light">Gruvbox Light</option>
+            <option value="theme-nord">Nord</option>
+            <option value="theme-everforest">Everforest</option>
+            <option value="theme-dracula">Dracula</option>
+        </select>
+    </div>
+
+    <!-- ===== Simple Header for Contact Page ===== -->
+    <header class="contact-header">
+        <h1>Contact Kuisux</h1>
+        <nav>
+            <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back Home</a>
+        </nav>
+    </header>
+
+    <!-- ===== Contact Content Section ===== -->
+    <main class="contact-container">
+
+        <!-- Email Section -->
+        <section class="email-section">
+            <h2>Get in Touch via Email</h2>
+            <p>For inquiries, collaborations, or just to say hi, feel free to send an email:</p>
+            <div class="email-info">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:kui@eeu.jp" class="email-address">kui@eeu.jp</a>
+                <!-- IMPORTANT: Replace your.email@example.com with your actual email address -->
+            </div>
+            <p class="note">(Please allow some time for a response!)</p>
+        </section>
+
+        <!-- Social Media Links Section -->
+        <section class="social-links-section">
+            <h2>Connect on Social Media</h2>
+            <p>You can also find me on these platforms:</p>
+            <div class="card-grid">
+                <!-- Card: Twitch -->
+                <a href="https://www.twitch.tv/kuisux" class="card card-bounce" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitch card-icon"></i>
+                    <h3>Twitch</h3>
+                    <p>Live streams & gameplay.</p>
+                </a>
+
+                <!-- Card: YouTube -->
+                <a href="https://www.youtube.com/@kuisux" class="card card-bounce" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube card-icon"></i>
+                    <h3>YouTube</h3>
+                    <p>VODs and other video content.</p>
+                </a>
+
+                <!-- Card: Twitter -->
+                <a href="https://x.com/kuisux" class="card card-bounce" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter card-icon"></i>
+                    <h3>Twitter / X</h3>
+                    <p>Updates and random thoughts.</p>
+                </a>
+
+                <!-- Card: Instagram -->
+                <a href="https://www.instagram.com/kuisux/" class="card card-bounce" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram card-icon"></i>
+                    <h3>Instagram</h3>
+                    <p>Visuals and behind-the-scenes.</p>
+                </a>
+
+                 <!-- Card: Discord -->
+                <a href="https://discord.com/invite/97aPTAhYvj" class="card card-bounce" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord card-icon"></i>
+                    <h3>Discord</h3>
+                    <p>Join the community server.</p>
+                </a>
+
+                 <!-- Card: Discord -->
+                 <a href="https://github.com/kuisux" class="card card-bounce" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github card-icon"></i>
+                    <h3>Discord</h3>
+                    <p>Join the community server.</p>
+                </a>
+
+                <!-- Add more social cards if needed -->
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== Footer (Copied from index.html) ===== -->
+    <footer>
+        <p>&copy; <span id="year"></span> Kuisux. All pixels reserved.</p>
+        <span class="pixel-heart">❤️</span>
+    </footer>
+
+    <!-- Shared Script (relative path to parent directory) - for theme switcher, footer year etc. -->
+    <script src="../script.js"></script>
+    <!-- Contact Specific Script -->
+    <script src="contact.js"></script>
+</body>
+</html>

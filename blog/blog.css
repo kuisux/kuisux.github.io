@@ -1,0 +1,145 @@
+/* blog/blog.css - Styles specific to the blog page */
+
+/* ===== Blog Header Styling ===== */
+.blog-header {
+    text-align: center;
+    padding: 40px 20px 20px 20px; /* Adjust padding as needed */
+    /* background: var(--surface0); Optional: Add a distinct background */
+    border-bottom: 2px solid var(--overlay0); /* Use theme variable */
+    margin-bottom: 30px;
+    position: relative; /* Needed if using animated background */
+}
+
+.blog-header h1 {
+    font-family: 'Press Start 2P', cursive; /* Use pixel font */
+    color: var(--mauve); /* Use theme variable */
+    margin-bottom: 15px;
+    font-size: 2em; /* Adjust size */
+}
+
+.blog-header .back-link {
+    color: var(--text); /* Use theme variable */
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid var(--overlay1);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-header .back-link:hover {
+    background-color: var(--mauve); /* Use theme variable */
+    color: var(--base); /* Use theme variable */
+    border-color: var(--mauve);
+}
+
+.blog-header .back-link i {
+    margin-right: 8px;
+}
+
+/* Optional: Style for mascot if added back */
+.blog-mascot {
+    max-width: 80px; /* Adjust size */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+/* ===== Blog Grid Layout ===== */
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.blog-container h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Press Start 2P', cursive;
+    color: var(--subtext0); /* Use theme variable */
+    font-size: 1.8em;
+}
+
+.blog-grid {
+    display: grid;
+    /* Creates responsive columns: fits as many 300px cards as possible,
+       each taking up equal space (1fr) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Space between cards */
+}
+
+/* ===== Blog Card Styling ===== */
+.blog-card {
+    background-color: var(--surface0); /* Use theme variable */
+    border-radius: 10px;
+    overflow: hidden; /* Keeps image corners rounded */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Use flexbox for better structure */
+    flex-direction: column; /* Stack image and content vertically */
+    text-decoration: none; /* Remove underline if card is a link */
+    color: var(--text); /* Ensure text color uses theme */
+}
+
+.blog-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Scales image nicely */
+    display: block; /* Remove extra space below image */
+    border-bottom: 1px solid var(--overlay0); /* Separator line */
+}
+
+.blog-card-content {
+    padding: 20px;
+    flex-grow: 1; /* Allows content to fill remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card-date {
+    font-size: 0.85em;
+    color: var(--subtext1); /* Use theme variable */
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.blog-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: var(--mauve); /* Use theme variable */
+    margin-bottom: 10px;
+    margin-top: 0; /* Reset margin */
+    flex-grow: 0; /* Don't let title grow excessively */
+}
+
+.blog-card-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    line-height: 1.6;
+    color: var(--text); /* Use theme variable */
+    flex-grow: 1; /* Allow text to take up available space */
+    margin-bottom: 0; /* Reset margin */
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+    .blog-header h1 {
+        font-size: 1.5em;
+    }
+    .blog-container h2 {
+        font-size: 1.4em;
+    }
+    .blog-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        gap: 20px;
+    }
+    .blog-card-title {
+        font-size: 1.2em;
+    }
+}
+

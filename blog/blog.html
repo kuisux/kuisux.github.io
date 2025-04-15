@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates & Blog - Kuisux</title>
+
+    <!-- Shared Styles & Fonts (relative path to parent directory) -->
+    <link rel="stylesheet" href="../style.css"> <!-- Link main style FIRST -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Blog Specific Styles (loads AFTER main styles) -->
+    <link rel="stylesheet" href="blog.css">
+
+</head>
+<body class="theme-catppuccin-mocha"> <!-- Default theme -->
+
+    <!-- ===== Theme Switcher (Copied from index.html) ===== -->
+    <div class="theme-switcher">
+        <label for="theme-select">Theme:</label>
+        <select id="theme-select">
+            <option value="theme-catppuccin-mocha">Catppuccin Mocha</option>
+            <option value="theme-catppuccin-macchiato">Catppuccin Macchiato</option>
+            <option value="theme-catppuccin-frappe">Catppuccin Frappe</option>
+            <option value="theme-catppuccin-latte">Catppuccin Latte</option>
+            <option value="theme-gruvbox-dark">Gruvbox Dark</option>
+            <option value="theme-gruvbox-light">Gruvbox Light</option>
+            <option value="theme-nord">Nord</option>
+            <option value="theme-everforest">Everforest</option>
+            <option value="theme-dracula">Dracula</option>
+        </select>
+    </div>
+
+    <!-- ===== Simple Header for Blog ===== -->
+    <header class="blog-header">
+         <!-- Optional: Add mascot/logo back if desired -->
+         <!-- <img src="../images/pixel_art_transparent.png" alt="Pixella Mascot" class="blog-mascot"> -->
+        <h1>Kuisux's Blog & Updates</h1>
+        <nav>
+            <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back Home</a>
+        </nav>
+         <!-- Optional: Add animated background back if desired -->
+         <!-- <div class="animated-background"></div> -->
+    </header>
+
+    <!-- ===== Blog Posts Section ===== -->
+    <main class="blog-container">
+        <h2>Latest Posts</h2>
+        <div class="blog-grid">
+
+            <!-- Blog Post Card 1 (Example) -->
+            <article class="blog-card">
+                <img src="../images/placeholder-image-1.png" alt="Blog Post 1 Image" class="blog-card-image"> <!-- Use a real image path -->
+                <div class="blog-card-content">
+                    <p class="blog-card-date">October 26, 2023</p>
+                    <h3 class="blog-card-title">New Website Launch!</h3>
+                    <p class="blog-card-text">Welcome to the new corner of the web! Built with pixels and dreams. Explore around and let me know what you think.</p>
+                </div>
+            </article>
+
+            <!-- Blog Post Card 2 (Example) -->
+            <article class="blog-card">
+                <img src="../images/placeholder-image-2.png" alt="Blog Post 2 Image" class="blog-card-image"> <!-- Use a real image path -->
+                 <div class="blog-card-content">
+                    <p class="blog-card-date">October 20, 2023</p>
+                    <h3 class="blog-card-title">Upcoming Stream Schedule</h3>
+                    <p class="blog-card-text">Planning some fun streams for next week, including [Game Name] and maybe some creative pixel art sessions. Check the schedule!</p>
+                </div>
+            </article>
+
+            <!-- Add more <article class="blog-card">...</article> blocks here for new posts -->
+
+        </div>
+    </main>
+
+    <!-- ===== Footer (Copied from index.html) ===== -->
+    <footer>
+        <p>&copy; <span id="year"></span> Kuisux. All pixels reserved.</p>
+        <span class="pixel-heart">❤️</span>
+    </footer>
+
+    <!-- Shared Script (relative path to parent directory) - for theme switcher, footer year etc. -->
+    <script src="../script.js"></script>
+    <!-- Blog Specific Script -->
+    <script src="blog.js"></script>
+</body>
+</html>

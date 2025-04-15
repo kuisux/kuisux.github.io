@@ -1,0 +1,154 @@
+/* c:\Users\kui\Documents\Site\contact\contact.css */
+
+/* Import base variables if needed, or rely on styles loaded from ../style.css */
+/* For example, if you have CSS variables defined in style.css, they should be available */
+
+/* Style the simple header for the contact page */
+.contact-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--bg-secondary); /* Use theme variable */
+    border-bottom: 2px solid var(--border-color); /* Use theme variable */
+    margin-bottom: 2rem;
+    position: relative; /* Optional: if you want to add back animated background later */
+}
+
+.contact-header h1 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--text-accent); /* Use theme variable */
+    margin-bottom: 1rem;
+    font-size: 1.8rem; /* Adjust as needed */
+}
+
+.contact-header .back-link {
+    color: var(--text-link); /* Use theme variable */
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.contact-header .back-link:hover {
+    color: var(--text-link-hover); /* Use theme variable */
+}
+
+.contact-header .back-link i {
+    margin-right: 0.5em;
+}
+
+
+/* Style the main container for contact content */
+.contact-container {
+    max-width: 900px; /* Adjust as needed */
+    margin: 2rem auto;
+    padding: 0 1rem; /* Add horizontal padding */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Space between sections */
+}
+
+/* Style individual sections */
+.email-section,
+.social-links-section {
+    background-color: var(--bg-secondary); /* Use theme variable */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color); /* Use theme variable */
+}
+
+.email-section h2,
+.social-links-section h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--text-accent); /* Use theme variable */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem; /* Adjust as needed */
+}
+
+.email-section p,
+.social-links-section p {
+    color: var(--text-primary); /* Use theme variable */
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Style the email info block */
+.email-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.email-info i {
+    font-size: 1.5rem;
+    color: var(--text-accent); /* Use theme variable */
+}
+
+.email-address {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--text-link); /* Use theme variable */
+    text-decoration: none;
+    word-break: break-all; /* Prevent long emails from overflowing */
+    transition: color 0.3s ease;
+}
+
+.email-address:hover {
+    color: var(--text-link-hover); /* Use theme variable */
+    text-decoration: underline;
+}
+
+.email-section .note {
+    font-size: 0.9rem;
+    color: var(--text-secondary); /* Use theme variable */
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+
+/* Style the social links section */
+.social-links-section .card-grid {
+    /* Inherits grid styles from ../style.css */
+    /* Add specific overrides here if needed */
+    margin-top: 2rem; /* Add some space above the cards */
+}
+
+/* Ensure cards within this section behave as expected */
+.social-links-section .card {
+    /* Inherits card styles from ../style.css */
+    text-align: center; /* Center content within cards */
+}
+
+.social-links-section .card h3 {
+     margin-top: 0.5rem; /* Adjust spacing if needed */
+     margin-bottom: 0.3rem;
+}
+
+.social-links-section .card p {
+    font-size: 0.9rem; /* Slightly smaller text for description */
+    color: var(--text-secondary); /* Use theme variable */
+    margin-bottom: 0; /* Remove default paragraph margin if needed */
+}
+
+/* Responsive adjustments if necessary */
+@media (max-width: 768px) {
+    .contact-header h1 {
+        font-size: 1.5rem;
+    }
+    .email-section h2,
+    .social-links-section h2 {
+        font-size: 1.3rem;
+    }
+    .contact-container {
+        gap: 2rem;
+    }
+    .email-section,
+    .social-links-section {
+        padding: 1.5rem;
+    }
+}
