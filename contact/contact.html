@@ -5,19 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Kuisux</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
-    <!-- Shared Styles & Fonts (relative path to parent directory) -->
-    <link rel="stylesheet" href="../style.css"> <!-- Link main style FIRST -->
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Contact Specific Styles (loads AFTER main styles) -->
     <link rel="stylesheet" href="contact.css">
 
 </head>
-<body class="theme-catppuccin-mocha"> <!-- Default theme -->
+<body class="theme-catppuccin-mocha"> 
 
-    <!-- ===== Theme Switcher (Copied from index.html) ===== -->
+    <!-- ===== Theme Switcher ===== -->
     <div class="theme-switcher">
         <label for="theme-select">Theme:</label>
         <select id="theme-select">
@@ -33,7 +29,7 @@
         </select>
     </div>
 
-    <!-- ===== Simple Header for Contact Page ===== -->
+    <!-- ===== Header ===== -->
     <header class="contact-header">
         <h1>Contact Kuisux</h1>
         <nav>
@@ -51,7 +47,6 @@
             <div class="email-info">
                 <i class="fas fa-envelope"></i>
                 <a href="mailto:kui@eeu.jp" class="email-address">kui@eeu.jp</a>
-                <!-- IMPORTANT: Replace your.email@example.com with your actual email address -->
             </div>
             <p class="note">(Please allow some time for a response!)</p>
         </section>
@@ -102,21 +97,17 @@
                     <h3>Discord</h3>
                     <p>Join the community server.</p>
                 </a>
-
-                <!-- Add more social cards if needed -->
-
             </div>
         </section>
 
     </main>
 
-    <!-- ===== Footer (Copied from index.html) ===== -->
+    <!-- ===== Footer ===== -->
     <footer>
         <p>&copy; <span id="year"></span> Kuisux. All pixels reserved.</p>
         <span class="pixel-heart">❤️</span>
     </footer>
 
-    <!-- Shared Script (relative path to parent directory) - for theme switcher, footer year etc. -->
     <script src="../script.js"></script>
     <!-- Contact Specific Script -->
     <script src="contact.js"></script>
