@@ -13,6 +13,34 @@
     <!-- Blog Specific Styles (loads AFTER main styles) -->
     <link rel="stylesheet" href="blog.css">
 
+    <!-- Add this style to ensure the link covers the card and removes default link styling -->
+    <style>
+        a.blog-card-link {
+            display: block; /* Make the link behave like a block element */
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit text color from parent */
+            border-radius: var(--card-border-radius, 10px); /* Inherit border-radius if card has one */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Match card hover effects */
+        }
+        a.blog-card-link:hover,
+        a.blog-card-link:focus {
+            /* Optional: Add hover effect directly to the link if needed,
+               or ensure the .blog-card styles apply correctly */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Ensure the article inside doesn't interfere with the link area */
+        a.blog-card-link article {
+            pointer-events: none; /* Make elements inside the article non-interactive for clicks */
+        }
+        /* Re-enable pointer events for interactive elements inside if needed later */
+        /* a.blog-card-link article a,
+           a.blog-card-link article button {
+            pointer-events: auto;
+        } */
+
+    </style>
+
 </head>
 <body class="theme-catppuccin-mocha"> <!-- Default theme -->
 
@@ -49,27 +77,37 @@
         <h2>Latest Posts</h2>
         <div class="blog-grid">
 
-            <!-- Blog Post Card 1 (Example) -->
-            <article class="blog-card">
-                <img src="../images/placeholder-image-1.png" alt="Blog Post 1 Image" class="blog-card-image"> <!-- Use a real image path -->
-                <div class="blog-card-content">
-                    <p class="blog-card-date">October 26, 2023</p>
-                    <h3 class="blog-card-title">New Website Launch!</h3>
-                    <p class="blog-card-text">Welcome to the new corner of the web! Built with pixels and dreams. Explore around and let me know what you think.</p>
-                </div>
-            </article>
+            <!-- Blog Post Card 1 (Example) - Now Wrapped in <a> -->
+            <a href="https://kuisux.github.io" class="blog-card-link"> <!-- <<< Added Link Wrapper -->
+                <article class="blog-card"> <!-- <<< Article is now INSIDE the link -->
+                    <img src="../images/website.png" alt="Blog Post 1 Image" class="blog-card-image">
+                    <div class="blog-card-content">
+                        <p class="blog-card-date">October 26, 2023</p>
+                        <h3 class="blog-card-title">New Website Launch!</h3>
+                        <p class="blog-card-text">Welcome to the new corner of the web! Built with pixels and dreams. Explore around and let me know what you think.</p>
+                    </div>
+                </article>
+            </a> <!-- <<< Closing Link Wrapper -->
 
-            <!-- Blog Post Card 2 (Example) -->
-            <article class="blog-card">
-                <img src="../images/placeholder-image-2.png" alt="Blog Post 2 Image" class="blog-card-image"> <!-- Use a real image path -->
-                 <div class="blog-card-content">
-                    <p class="blog-card-date">October 20, 2023</p>
-                    <h3 class="blog-card-title">Upcoming Stream Schedule</h3>
-                    <p class="blog-card-text">Planning some fun streams for next week, including [Game Name] and maybe some creative pixel art sessions. Check the schedule!</p>
-                </div>
-            </article>
+            <!-- Blog Post Card 2 (Example) - Now Wrapped in <a> -->
+            <a href="https://github.com/kuisux/kuisux.github.io/blob/main/images/strteamSchedule.png" class="blog-card-link"> <!-- <<< Added Link Wrapper -->
+                 <article class="blog-card"> <!-- <<< Article is now INSIDE the link -->
+                    <img src="../images/streamSchedule.png" alt="Blog Post 2 Image" class="blog-card-image">
+                     <div class="blog-card-content">
+                        <p class="blog-card-date">October 20, 2023</p>
+                        <h3 class="blog-card-title">Upcoming Stream Schedule</h3>
+                        <p class="blog-card-text">Planning some fun streams for next week, including [Game Name] and maybe some creative pixel art sessions. Check the schedule!</p>
+                    </div>
+                </article>
+            </a> <!-- <<< Closing Link Wrapper -->
 
-            <!-- Add more <article class="blog-card">...</article> blocks here for new posts -->
+            <!-- Add more blog posts following the same pattern:
+            <a href="/path/to/your/post.html" class="blog-card-link">
+                <article class="blog-card">
+                    ... content ...
+                </article>
+            </a>
+            -->
 
         </div>
     </main>

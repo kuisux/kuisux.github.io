@@ -222,7 +222,7 @@ footer {
 
 /* 1. Mascot Animation (Simple Bobbing) */
 .mascot-animation {
-    width: 150px; /* Adjust size */
+    width: 500px; /* Adjust size */
     height: auto;
     margin-bottom: 1rem;
     animation: bobbing 3s ease-in-out infinite;
