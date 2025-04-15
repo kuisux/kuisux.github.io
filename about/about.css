@@ -70,7 +70,7 @@
 /* --- MODIFIED Mascot Styling --- */
 .about-mascot {
     /* Define width and calculate height for 9:16 */
-    width: 150px; /* Or your desired width */
+    width: auto; /* Or your desired width */
     height: calc(150px * 16 / 9); /* Calculate height based on width for 9:16 */
 
     /* Make it rectangular and handle image fitting */
