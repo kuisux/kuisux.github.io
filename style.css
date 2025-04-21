@@ -56,6 +56,25 @@
     --border-color: #6272A4; --accent-color: #BD93F9; /* Purple */
     --accent-hover: #A981E1; --text-muted: #ABB2BF;
 }
+.theme-black-red {
+    --bg-color: #080808;      
+    --fg-color: #F5F5F5;       
+    --card-bg: #1A1A1A;        
+    --border-color: #383838;   
+    --accent-color: #CC0000;   
+    --accent-hover: #FF4D4D;   
+    --text-muted: #ccacac;      
+}
+.theme-black-teal {
+    --bg-color: #080808;      
+    --fg-color: #F5F5F5;       
+    --card-bg: #1A1A1A;        
+    --border-color: #383838;   
+    --accent-color: #90E4c1;   
+    --accent-hover: #008080;   
+    --text-muted: #999999;      
+}
+
 
 /* --- General Styles --- */
 body {
