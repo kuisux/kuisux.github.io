@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+/* --- CATPPUCCIN THEMES --- */
+:root {
+    /* Default to Mocha */
+    --rosewater: #f5e0dc;
+    --flamingo: #f2cdcd;
+    --pink: #f5c2e7;
+    --mauve: #cba6f7;
+    --red: #f38ba8;
+    --maroon: #eba0ac;
+    --peach: #fab387;
+    --yellow: #f9e2af;
+    --green: #a6e3a1;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+    --sapphire: #74c7ec;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay2: #9399b2;
+    --overlay1: #7f849c;
+    --overlay0: #6c7086;
+    --surface2: #585b70;
+    --surface1: #45475a;
+    --surface0: #313244;
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+}
+
+[data-theme="latte"] {
+    --rosewater: #dc8a78;
+    --flamingo: #dd7878;
+    --pink: #ea76cb;
+    --mauve: #8839ef;
+    --red: #d20f39;
+    --maroon: #e64553;
+    --peach: #fe640b;
+    --yellow: #df8e1d;
+    --green: #40a02b;
+    --teal: #179299;
+    --sky: #04a5e5;
+    --sapphire: #209fb5;
+    --blue: #1e66f5;
+    --lavender: #7287fd;
+    --text: #4c4f69;
+    --subtext1: #5c5f77;
+    --subtext0: #6c6f85;
+    --overlay2: #7c7f93;
+    --overlay1: #8c8fa1;
+    --overlay0: #9ca0b0;
+    --surface2: #acb0be;
+    --surface1: #bcc0cc;
+    --surface0: #ccd0da;
+    --base: #eff1f5;
+    --mantle: #e6e9ef;
+    --crust: #dce0e8;
+}
+
+/* --- GENERAL STYLES --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: 'Fira Code', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- THEME SWITCHER --- */
+.theme-switcher {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.theme-switcher span {
+    padding: 0 0.5rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--surface0);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--mauve);
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--surface0);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background-color: var(--pink);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* --- TERMINAL CONTENT --- */
+.terminal-container {
+    padding: 1.5rem;
+    max-width: 900px; /* Keep content from getting too wide on large screens */
+    padding-bottom: 30vh; /* Add space at the bottom to push the input line up */
+    min-height: 100vh; /* Ensure it fills the screen vertically */
+}
+
+.line {
+    display: flex;
+    align-items: center; /* Use center for general vertical alignment */
+    white-space: pre-wrap;
+}
+
+.search-line {
+    align-items: baseline; /* Use baseline specifically for the input form */
+    white-space: nowrap; /* Prevent the input from wrapping to a new line */
+}
+
+.prompt.user { color: var(--green); }
+.prompt.colon { color: var(--text); }
+.prompt.tilde { color: var(--mauve); }
+.prompt.dollar { color: var(--text); }
+.command { color: var(--sky); margin-left: 0.5rem; }
+
+.link-section {
+    margin-bottom: 1.5rem;
+}
+
+.links {
+    list-style-type: none;
+    padding-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem 1rem;
+    margin-top: 0.5rem;
+}
+
+.links a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--blue);
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.links a:hover {
+    color: var(--base);
+    background-color: var(--blue);
+    padding: 0 0.25rem;
+    border-radius: 3px;
+}
+
+/* Wrapper for search input and fake cursor */
+.input-container {
+    position: relative;
+    flex-grow: 1;
+    margin-left: 0.5rem;
+}
+
+/* Search Input */
+.search-input {
+    position: relative; /* Needed for z-index */
+    z-index: 1;
+    background-color: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit; /* Use the body's font-family */
+    font-size: inherit;
+    line-height: inherit; /* Fixes vertical alignment offset */
+    width: 100%;
+    /* Use theme color for the blinking cursor (caret) */
+    caret-color: var(--text);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+/* Blinking cursor */
+.cursor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; /* Aligns with start of input-container */
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 10px; /* Thicker cursor */
+    height: 1.2em;
+    background-color: var(--text);
+    animation: blink 1s step-end infinite;
+    z-index: 0; /* Position behind the input text */
+}
+
+@keyframes blink {
+    from, to { background-color: transparent; }
+    50% { background-color: var(--text); }
+}
+
+/* Scrollbar styling */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--mantle);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--surface1);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--surface2);
+}

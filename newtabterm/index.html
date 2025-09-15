@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="terminal-container" id="terminal-container">
+        <div id="clock-container" class="line"></div>
+        <div class="line">
+            <p>Welcome isa!</p>
+        </div>
+        <div class="line">
+            <p>have fun browsing.</p>
+        </div>
+        <div class="line">&nbsp;</div>
+
+        <!-- Link Sections - Easy to edit -->
+        <div class="link-section">
+            <div class="line">
+                <span class="prompt user">isa@firefox</span><span class="prompt colon">:</span><span class="prompt tilde">~</span><span class="prompt dollar">$</span> <span class="command">ls common</span>
+            </div>
+            <ul class="links">
+                <li><a href="https://www.youtube.com" target="_blank">youtube</a></li>
+                <li><a href="https://www.spotify.com" target="_blank">spotify</a></li>
+                <li><a href="https://www.gmail.com" target="_blank">gmail</a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank">linkedin</a></li>
+            </ul>
+        </div>
+
+        <div class="link-section">
+            <div class="line">
+                <span class="prompt user">isa@firefox</span><span class="prompt colon">:</span><span class="prompt tilde">~</span><span class="prompt dollar">$</span> <span class="command">ls dev</span>
+            </div>
+            <ul class="links">
+                <li><a href="https://github.com/" target="_blank">github</a></li>
+                <li><a href="https://musicforprogramming.net" target="_blank">musicforprogramming()</a></li>
+                <li><a href="https://www.stackoverflow.com" target="_blank">stackoverflow</a></li>
+                <li><a href="https://codepen.io/" target="_blank">codepen</a></li>
+                <li><a href="https://codebeautify.org/" target="_blank">beautifier</a></li>
+            </ul>
+        </div>
+
+        <div class="link-section">
+            <div class="line">
+                <span class="prompt user">isa@firefox</span><span class="prompt colon">:</span><span class="prompt tilde">~</span><span class="prompt dollar">$</span> <span class="command">ls news</span>
+            </div>
+            <ul class="links">
+                <li><a href="https://news.ycombinator.com/" target="_blank">hacker-news</a></li>
+                <li><a href="https://www.bbc.co.uk/news" target="_blank">BBC</a></li>
+                <li><a href="https://dev.to/" target="_blank">dev.to</a></li>
+            </ul>
+        </div>
+
+        <div class="link-section">
+            <div class="line">
+                <span class="prompt user">isa@firefox</span><span class="prompt colon">:</span><span class="prompt tilde">~</span><span class="prompt dollar">$</span> <span class="command">ls streaming</span>
+            </div>
+            <ul class="links">
+                <li><a href="https://streamed.pk/" target="_blank">sports</a></li>
+                <li><a href="https://animekai.to/home" target="_blank">anime</a></li>
+                <li><a href="https://pstream.mov/" target="_blank">TV and Movies</a></li>
+                <li><a href="https://www.twitch.tv" target="_blank">twitch</a></li>
+            </ul>
+        </div>
+
+        <div class="link-section">
+            <div class="line">
+                <span class="prompt user">isa@firefox</span><span class="prompt colon">:</span><span class="prompt tilde">~</span><span class="prompt dollar">$</span> <span class="command">ls tools</span>
+            </div>
+            <ul class="links">
+                <li><a href="https://www.wallrice.xyz/" target="_blank">wallrice</a></li>
+                <li><a href="https://gemini.google.com/app" target="_blank">gemini</a></li>
+                <li><a href="https://www.notion.so" target="_blank">notion</a></li>
+                <li><a href="https://theindex.moe/" target="_blank">index.moe</a></li>
+                <li><a href="https://1337x.to/" target="_blank">1337x</a></li>
+                <li><a href="https://fitgirl-repacks.site/" target="_blank">fitgirl</a></li>
+                
+            </ul>
+        </div>
+
+        <div class="link-section">
+            <div class="line">
+                <span class="prompt user">isa@firefox</span><span class="prompt colon">:</span><span class="prompt tilde">~</span><span class="prompt dollar">$</span> <span class="command">ls social-media</span>
+            </div>
+            <ul class="links">
+                <li><a href="https://www.reddit.com" target="_blank">reddit</a></li>
+                <li><a href="https://www.twitter.com" target="_blank">twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">instagram</a></li>
+                <li><a href="https://www.facebook.com" target="_blank">facebook</a></li>
+            </ul>
+        </div>
+        <!-- Add more sections as needed -->
+
+        <form id="search-form">
+            <label for="search-input" class="line search-line">
+                <span class="prompt user">isa@firefox</span><span class="prompt colon">:</span><span class="prompt tilde">~</span><span class="prompt dollar">$</span>
+                <div class="input-container">
+                    <input type="text" id="search-input" class="search-input" autocomplete="off" autofocus>
+                    <span class="cursor"></span>
+                </div>
+            </label>
+        </form>
+    </main>
+
+    <div class="theme-switcher">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
