@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- DOM ELEMENTS ---
     const currentDateEl = document.getElementById('current-date');
     const prevDayBtn = document.getElementById('prev-day-btn');
     const nextDayBtn = document.getElementById('next-day-btn');
@@ -14,18 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const addWeeklyCardBtn = document.getElementById('add-weekly-card-btn');
     const dayColumns = document.querySelectorAll('.day-column');
 
-    // --- STATE ---
     let current_date = new Date();
-    let currentWeekId = null; // To track the current week, e.g., "2023-10-23"
+    let currentWeekId = null; 
 
-    // --- DATE & WEEK FUNCTIONS ---
     const getWeekId = (date) => {
         const d = new Date(date);
-        // Adjust to Monday of the current week
         const day = d.getDay();
-        const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Adjust when day is Sunday
+        const diff = d.getDate() - day + (day === 0 ? -6 : 1); 
         const monday = new Date(d.setDate(diff));
-        return monday.toISOString().split('T')[0]; // YYYY-MM-DD of the week's Monday
+        return monday.toISOString().split('T')[0]; 
     };
 
     const updateDateDisplay = () => {
@@ -39,24 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const changeDay = (offset) => {
-        saveDataForDate(current_date); // Save the data for the day we are leaving
+        saveDataForDate(current_date); 
 
         const oldWeekId = getWeekId(current_date);
         current_date.setDate(current_date.getDate() + offset);
         const newWeekId = getWeekId(current_date);
 
         if (oldWeekId !== newWeekId) {
-            // Week has changed, load the new week's data
             loadWeeklyData(newWeekId);
         }
 
         updateDateDisplay();
     };
-
-    // --- DATA PERSISTENCE (LOCAL STORAGE) ---
-    const getFormattedDate = (date) => date.toISOString().split('T')[0]; // YYYY-MM-DD
-
-    // --- DAILY DATA ---
+    const getFormattedDate = (date) => date.toISOString().split('T')[0]; 
     const saveDataForDate = (date) => {
         const formattedDate = getFormattedDate(date);
         const data = {
@@ -64,12 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
             notes: notesTextarea.value,
         };
 
-        // Save checklist items
         checklist.querySelectorAll('li').forEach(li => {
-            // This is slightly brittle, but works for this implementation.
-            // It assumes the delete button's text is a single character 'X'.
             data.checklist.push({
-                text: li.textContent.slice(0, -1), // Remove 'X'
+                text: li.textContent.slice(0, -1), 
                 completed: li.classList.contains('completed')
             });
         });
@@ -81,21 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const formattedDate = getFormattedDate(date);
         const data = JSON.parse(localStorage.getItem(`planner-daily-${formattedDate}`));
 
-        // Clear current daily view
         checklist.innerHTML = '';
         notesTextarea.value = '';
 
         if (data) {
-            // Load checklist
             if (data.checklist) {
                 data.checklist.forEach(item => createChecklistItem(item.text, item.completed));
             }
-            // Load notes
             notesTextarea.value = data.notes || '';
         }
     };
 
-    // --- WEEKLY DATA ---
     const saveWeeklyData = () => {
         if (!currentWeekId) return;
         const weeklyData = {};
@@ -113,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         currentWeekId = weekId;
         const data = JSON.parse(localStorage.getItem(`planner-weekly-${weekId}`));
 
-        // Clear current weekly view
         dayColumns.forEach(col => {
             col.querySelectorAll('.task-card').forEach(card => card.remove());
         });
@@ -129,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- CHECKLIST FUNCTIONS ---
     const createChecklistItem = (text, completed = false) => {
         if (!text) return;
         const li = document.createElement('li');
@@ -143,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.className = 'delete-btn';
         li.appendChild(deleteBtn);
 
-        // Toggle completed status
         li.addEventListener('click', (e) => {
             if (e.target !== deleteBtn) {
                 li.classList.toggle('completed');
@@ -151,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Delete item
         deleteBtn.addEventListener('click', () => {
             li.remove();
             saveDataForDate(current_date);
@@ -166,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         saveDataForDate(current_date);
     };
 
-    // --- WEEKLY BOARD FUNCTIONS ---
     const createWeeklyCard = (text, targetColumn) => {
         if (!text || !targetColumn) return;
         const card = document.createElement('div');
@@ -174,14 +153,14 @@ document.addEventListener('DOMContentLoaded', () => {
         card.textContent = text;
         card.draggable = true;
 
-        // Drag and Drop events
+
         card.addEventListener('dragstart', () => {
             card.classList.add('dragging');
         });
 
         card.addEventListener('dragend', () => {
             card.classList.remove('dragging');
-            saveWeeklyData(); // Use the dedicated weekly save function
+            saveWeeklyData(); 
         });
 
         targetColumn.appendChild(card);
@@ -191,10 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const mondayColumn = document.querySelector('.day-column[data-day="Monday"]');
         createWeeklyCard(weeklyCardInput.value, mondayColumn);
         weeklyCardInput.value = '';
-        saveWeeklyData(); // Use the dedicated weekly save function
+        saveWeeklyData(); 
     };
 
-    // Drag and Drop for columns
     dayColumns.forEach(column => {
         column.addEventListener('dragover', e => {
             e.preventDefault();
@@ -205,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- EVENT LISTENERS ---
     prevDayBtn.addEventListener('click', () => changeDay(-1));
     nextDayBtn.addEventListener('click', () => changeDay(1));
 
@@ -219,10 +196,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') handleAddWeeklyCard();
     });
 
-    notesTextarea.addEventListener('blur', () => saveDataForDate(current_date)); // Save notes when user clicks away
+    notesTextarea.addEventListener('blur', () => saveDataForDate(current_date)); 
 
-    // --- INITIALIZATION ---
     currentWeekId = getWeekId(current_date);
-    updateDateDisplay(); // Loads daily data for today
-    loadWeeklyData(currentWeekId); // Loads weekly data for this week
+    updateDateDisplay(); 
+    loadWeeklyData(currentWeekId); 
+
 });
