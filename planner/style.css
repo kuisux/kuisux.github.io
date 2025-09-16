@@ -1,14 +1,13 @@
 :root {
-    /* Catppuccin Mocha Theme */
-    --bg-primary: #1e1e2e;      /* Base */
-    --bg-secondary: #313244;    /* Surface0 */
-    --bg-widget: #181825;       /* Mantle */
-    --text-primary: #cba6f7;    /* Mauve */
-    --text-secondary: #cdd6f4;  /* Text */
-    --accent-color: #cba6f7;    /* Mauve */
-    --border-color: #45475a;    /* Surface1 */
-    --delete-color: #f38ba8;     /* Red */
-    --mauve-rgb: 203, 166, 247; /* For transparent bubbles */
+    --bg-primary: #1e1e2e;     
+    --bg-secondary: #313244;   
+    --bg-widget: #181825;      
+    --text-primary: #cba6f7;    
+    --text-secondary: #cdd6f4;  
+    --accent-color: #cba6f7;    
+    --border-color: #45475a;   
+    --delete-color: #f38ba8;   
+    --mauve-rgb: 203, 166, 247; 
     --shadow-color: rgba(17, 17, 27, 0.4);
 }
 
@@ -23,16 +22,15 @@
 }
 
 body {
-    display: grid; /* Use grid for robust centering */
+    display: grid; 
     place-items: center;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: var(--bg-primary);
     color: var(--text-secondary);
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll from floaty widgets */
-    min-height: 100vh; /* Ensure body takes full viewport height */
-    padding: 2rem 1rem; /* Add padding for small screens and when content overflows */
-}
+    overflow-x: hidden; 
+    min-height: 100vh; 
+    padding: 2rem 1rem;
 
 .background-bubbles {
     position: fixed;
@@ -70,9 +68,9 @@ body {
 .background-bubbles span:nth-child(10){ left: 85%; width: 30px; height: 30px; animation-duration: 19s; animation-delay: 7s; }
 
 .app-container {
-    max-width: 1920px; /* Set a generous max-width */
+    max-width: 1920px; 
     padding: 1rem;
-    width: 100%; /* Allow container to use available space up to max-width */
+    width: 100%; 
 }
 
 header {
@@ -118,23 +116,19 @@ header h1 {
 
 .planner-grid {
     display: grid;
-    /* Default to a single column for smaller screens (mobile-first) */
     grid-template-columns: 1fr;
     gap: 1.5rem;
 }
 
-/* For tablets and medium screens, allow two columns */
+
 @media (min-width: 768px) {
     .planner-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* For desktops and larger screens, create the desired three-column layout */
 @media (min-width: 1100px) {
     .planner-grid {
-        /* Force each column to have a substantial minimum width */
-        /* Use fractional units for a fluid 3-column layout */
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -146,7 +140,7 @@ header h1 {
     box-shadow: 0 5px 15px var(--shadow-color);
     display: flex;
     flex-direction: column;
-    opacity: 0; /* Initially hidden for animation */
+    opacity: 0; 
     animation: fadeInUp 0.6s ease-out forwards, floaty 6s ease-in-out infinite;
 }
 
@@ -157,7 +151,6 @@ header h1 {
     padding-bottom: 0.5rem;
 }
 
-/* Staggered animation delays */
 #daily-checklist { animation-delay: 0.1s, 0s; }
 #music-player { animation-delay: 0.2s, 1.5s; }
 #notes-section { animation-delay: 0.3s, 0.5s; }
@@ -167,10 +160,9 @@ header h1 {
     grid-column: 1 / -1;
 }
 
-/* Input Forms */
 .add-item-form {
     display: flex;
-    margin-top: auto; /* Pushes form to the bottom */
+    margin-top: auto; 
     padding-top: 1rem;
 }
 
@@ -198,7 +190,6 @@ header h1 {
     transform: scale(0.95);
 }
 
-/* Checklist */
 #checklist {
     list-style: none;
     overflow-y: auto;
@@ -237,7 +228,6 @@ header h1 {
     visibility: visible;
 }
 
-/* Music & Notes */
 #music-player, #notes-section {
     min-height: 350px;
 }
@@ -265,7 +255,6 @@ header h1 {
     font-family: inherit;
 }
 
-/* Weekly View */
 .week-board {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
