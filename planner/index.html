@@ -1,99 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Planner</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="background-bubbles">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-
     <div class="app-container">
-        <header>
-<!--Change to your name -->
-            <h1>Welcome back Isa </h1>
-            <div class="date-navigation">
-                <button id="prev-day-btn">&lt;</button>
-                <h2 id="current-date"></h2>
-                <button id="next-day-btn">&gt;</button>
+      <header>
+        <div id="clock"></div>
+        <h1>Welcome back, Isa</h1>
+        <div class="date-navigation">
+          <button id="prev-day-btn">&lt;</button>
+          <h2 id="current-date"></h2>
+          <button id="next-day-btn">&gt;</button>
+        </div>
+      </header>
+      <main class="planner-grid">
+        <!-- Daily Checklist -->
+        <section class="grid-widget" id="daily-checklist">
+          <h3>Daily Checklist</h3>
+          <ul id="checklist">
+            <!-- Checklist items will be added here by JS -->
+          </ul>
+          <div class="add-item-form">
+            <input type="text" id="checklist-input" placeholder="Add a new task...">
+            <button id="add-checklist-item-btn">+</button>
+          </div>
+        </section>
+        <!-- Music Player -->
+        <section class="grid-widget" id="music-player">
+          <h3>Music</h3>
+          <!-- PASTE YOUR YOUTUBE LINK HERE -->
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/4xDzrJKXOOY?si=D8vaUAg2NYdRQShQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+        <!-- Notes -->
+        <section class="grid-widget" id="notes-section">
+          <h3>Notes for the Day</h3>
+          <textarea id="notes-textarea" placeholder="Jot down your thoughts..."></textarea>
+        </section>
+        <!-- Weekly To-Do Chart -->
+        <section class="grid-widget full-width" id="weekly-view">
+          <h3>Weekly To-Do Board</h3>
+          <div class="week-board">
+            <div class="day-column" data-day="Sunday">
+              <h4>Sunday</h4>
             </div>
-        </header>
-
-        <main class="planner-grid">
-            
-            <section class="grid-widget" id="daily-checklist">
-                <h3>Daily Checklist</h3>
-                <ul id="checklist">
-                </ul>
-                <div class="add-item-form">
-                    <input type="text" id="checklist-input" placeholder="Add a new task...">
-                    <button id="add-checklist-item-btn">+</button>
-                </div>
-            </section>
-            
-            <section class="grid-widget" id="music-player">
-                <h3>Music</h3>
-<!--Change your embedd to music here -->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/4xDzrJKXOOY?si=D8vaUAg2NYdRQShQ"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </section>
-
-            <section class="grid-widget" id="notes-section">
-                <h3>Notes for the Day</h3>
-                <textarea id="notes-textarea" placeholder="Jot down your thoughts..."></textarea>
-            </section>
-
-            <section class="grid-widget full-width" id="weekly-view">
-                <h3>Weekly To-Do Board</h3>
-                <div class="week-board">
-                    <div class="day-column" data-day="Sunday">
-                        <h4>Sunday</h4>
-                    </div>
-                    <div class="day-column" data-day="Monday">
-                        <h4>Monday</h4>
-                    </div>
-                    <div class="day-column" data-day="Tuesday">
-                        <h4>Tuesday</h4>
-                    </div>
-                    <div class="day-column" data-day="Wednesday">
-                        <h4>Wednesday</h4>
-                    </div>
-                    <div class="day-column" data-day="Thursday">
-                        <h4>Thursday</h4>
-                    </div>
-                    <div class="day-column" data-day="Friday">
-                        <h4>Friday</h4>
-                    </div>
-                    <div class="day-column" data-day="Saturday">
-                        <h4>Saturday</h4>
-                    </div>
-                </div>
-                <div class="add-item-form">
-                    <input type="text" id="weekly-card-input" placeholder="Add a new weekly card...">
-                    <button id="add-weekly-card-btn">Add Card to Monday</button>
-                </div>
-            </section>
-
-        </main>
+            <div class="day-column" data-day="Monday">
+              <h4>Monday</h4>
+            </div>
+            <div class="day-column" data-day="Tuesday">
+              <h4>Tuesday</h4>
+            </div>
+            <div class="day-column" data-day="Wednesday">
+              <h4>Wednesday</h4>
+            </div>
+            <div class="day-column" data-day="Thursday">
+              <h4>Thursday</h4>
+            </div>
+            <div class="day-column" data-day="Friday">
+              <h4>Friday</h4>
+            </div>
+            <div class="day-column" data-day="Saturday">
+              <h4>Saturday</h4>
+            </div>
+          </div>
+          <div class="add-item-form">
+            <input type="text" id="weekly-card-input" placeholder="Add a new weekly card...">
+            <button id="add-weekly-card-btn">Add Card to Monday</button>
+          </div>
+        </section>
+      </main>
     </div>
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
-
