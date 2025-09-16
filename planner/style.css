@@ -237,7 +237,7 @@ header h1 {
     visibility: visible;
 }
 
-/* Spotify & Notes */
+/* Music & Notes */
 #music-player, #notes-section {
     min-height: 350px;
 }
