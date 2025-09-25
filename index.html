@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Programming Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="mocha"> {/* Mocha is the default */}
+
+    <header>
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-switcher" aria-label="Switch theme">
+                <span class="moon-icon">🌙</span>
+                <span class="sun-icon" style="display:none;">☀️</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm [Your Name]!</h1>
+                <p class="tagline">A <span class="playful-accent">Creative Developer</span> crafting elegant and efficient solutions.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="placeholder-profile.jpg" alt="Your Name" class="profile-pic">
+                <p>Hello! I'm passionate about [mention your passion in programming]. I enjoy turning complex problems into beautiful, intuitive designs. My journey in tech started with [briefly mention how you started] and I've since honed my skills in [mention 2-3 key areas]. When I'm not coding, you can find me [mention a hobby or interest for that playful touch!].</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="placeholder-project1.jpg" alt="Project 1 Screenshot">
+                    <h3>Project Title 1</h3>
+                    <p>A brief description of your awesome project. Highlighting the main features and your role.</p>
+                    <div class="project-tags">
+                        <span>React</span><span>Node.js</span><span>CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="button-secondary">Live Demo</a>
+                        <a href="#" target="_blank" class="button-secondary">View Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="placeholder-project2.jpg" alt="Project 2 Screenshot">
+                    <h3>Project Title 2</h3>
+                    <p>Another cool project! Explain the problem it solves and the technologies used.</p>
+                     <div class="project-tags">
+                        <span>Python</span><span>Flask</span><span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="button-secondary">Live Demo</a>
+                        <a href="#" target="_blank" class="button-secondary">View Code</a>
+                    </div>
+                </div>
+                {/* Add more project cards here */}
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>JavaScript (ES6+)</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Python</li>
+                <li>HTML5 & CSS3</li>
+                <li>Git & GitHub</li>
+                <li>REST APIs</li>
+                <li>UI/UX Principles</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new projects or collaboration opportunities. Feel free to reach out!</p>
+            <a href="mailto:your.email@example.com" class="cta-button">Email Me</a>
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> [Your Name]. Crafted with Catppuccin.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

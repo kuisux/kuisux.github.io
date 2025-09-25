@@ -1,0 +1,489 @@
+/* -------------------- */
+/* Catppuccin Variables */
+/* -------------------- */
+
+:root {
+    /* Generic variables - these will be overridden by themes */
+    --body-bg: #1e1e2e;
+    --text-color: #cdd6f4;
+    --heading-color: #cdd6f4;
+    --card-bg: #181825; /* Slightly darker than base for depth */
+    --border-color: #313244;
+    --accent-color: #89b4fa; /* Blue */
+    --accent-text-color: #1e1e2e; /* For text on accent buttons */
+    --secondary-accent: #f5c2e7; /* Mauve/Pink for playful touches */
+    --link-color: #89b4fa;
+    --link-hover-color: #b4befe; /* Lavender */
+    --nav-bg: rgba(30, 30, 46, 0.85); /* Mocha Base with some transparency */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --tag-bg: #313244;
+    --tag-text: #bac2de;
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+    --transition-ease: ease-in-out;
+}
+
+/* MOCHA THEME (Default, but explicitly defined for clarity) */
+body[data-theme="mocha"] {
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
+
+    /* Mapping to generic variables */
+    --body-bg: var(--ctp-base);
+    --text-color: var(--ctp-text);
+    --heading-color: var(--ctp-mauve); /* Example: Mauve for headings */
+    --card-bg: var(--ctp-mantle);
+    --border-color: var(--ctp-surface0);
+    --accent-color: var(--ctp-blue);
+    --accent-text-color: var(--ctp-base);
+    --secondary-accent: var(--ctp-pink);
+    --link-color: var(--ctp-sky);
+    --link-hover-color: var(--ctp-sapphire);
+    --nav-bg: rgba(30, 30, 46, 0.85); /* Mocha Base with transparency */
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --tag-bg: var(--ctp-surface0);
+    --tag-text: var(--ctp-subtext0);
+}
+
+/* LATTE THEME */
+body[data-theme="latte"] {
+    --ctp-rosewater: #dc8a78;
+    --ctp-flamingo: #dd7878;
+    --ctp-pink: #ea76cb;
+    --ctp-mauve: #8839ef;
+    --ctp-red: #d20f39;
+    --ctp-maroon: #e64553;
+    --ctp-peach: #fe640b;
+    --ctp-yellow: #df8e1d;
+    --ctp-green: #40a02b;
+    --ctp-teal: #179299;
+    --ctp-sky: #04a5e5;
+    --ctp-sapphire: #209fb5;
+    --ctp-blue: #1e66f5;
+    --ctp-lavender: #7287fd;
+    --ctp-text: #4c4f69;
+    --ctp-subtext1: #5c5f77;
+    --ctp-subtext0: #6c6f85;
+    --ctp-overlay2: #7c7f93;
+    --ctp-overlay1: #8c8fa1;
+    --ctp-overlay0: #9ca0b0;
+    --ctp-surface2: #acb0be;
+    --ctp-surface1: #bcc0cc;
+    --ctp-surface0: #ccd0da;
+    --ctp-base: #eff1f5; /* Light base */
+    --ctp-mantle: #e6e9ef; /* Slightly darker light */
+    --ctp-crust: #dce0e8;   /* Even darker light */
+
+    /* Mapping to generic variables */
+    --body-bg: var(--ctp-base);
+    --text-color: var(--ctp-text);
+    --heading-color: var(--ctp-mauve); /* Example: Mauve for headings */
+    --card-bg: var(--ctp-mantle);
+    --border-color: var(--ctp-surface0);
+    --accent-color: var(--ctp-blue);
+    --accent-text-color: var(--ctp-base); /* Text on blue button in Latte */
+    --secondary-accent: var(--ctp-pink);
+    --link-color: var(--ctp-sapphire);
+    --link-hover-color: var(--ctp-sky);
+    --nav-bg: rgba(239, 241, 245, 0.85); /* Latte Base with transparency */
+    --shadow-color: rgba(108, 112, 134, 0.15);
+    --tag-bg: var(--ctp-surface0);
+    --tag-text: var(--ctp-subtext1);
+}
+
+
+/* -------------------- */
+/* Global Styles        */
+/* -------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    line-height: 1.7;
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                color var(--transition-speed) var(--transition-ease);
+    padding-top: 70px; /* Account for fixed header */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* More playful heading font */
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+    transition: color var(--transition-speed) var(--transition-ease);
+}
+
+h1 { font-size: 3rem; line-height: 1.2; }
+h2 { font-size: 2.2rem; margin-bottom: 1.5rem; text-align: center;}
+h3 { font-size: 1.5rem; color: var(--text-color); } /* Project card titles */
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-ease);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* -------------------- */
+/* Header & Navigation  */
+/* -------------------- */
+header {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                border-color var(--transition-speed) var(--transition-ease);
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--heading-color);
+    transition: color var(--transition-speed) var(--transition-ease);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    text-decoration: none;
+}
+
+nav ul li a::after { /* Playful underline animation */
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-accent);
+    transition: width 0.3s ease-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+#theme-switcher {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                color var(--transition-speed) var(--transition-ease),
+                border-color var(--transition-speed) var(--transition-ease);
+}
+#theme-switcher:hover {
+    background-color: var(--surface0); /* Use Catppuccin surface color */
+}
+
+/* -------------------- */
+/* Hero Section         */
+/* -------------------- */
+#hero {
+    min-height: calc(80vh - 70px); /* Adjust based on nav height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content .tagline {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: var(--ctp-subtext0, var(--text-color)); /* Fallback to text-color */
+}
+
+.playful-accent {
+    color: var(--secondary-accent);
+    font-weight: bold;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s ease-out, background-color var(--transition-speed) var(--transition-ease);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background-color: var(--link-hover-color); /* Could use a slightly different accent */
+    text-decoration: none;
+}
+
+/* -------------------- */
+/* About Section        */
+/* -------------------- */
+.about-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the start if text is longer */
+    gap: 30px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular picture */
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+/* -------------------- */
+/* Projects Section     */
+/* -------------------- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s var(--transition-ease),
+                box-shadow 0.3s var(--transition-ease),
+                background-color var(--transition-speed) var(--transition-ease),
+                border-color var(--transition-speed) var(--transition-ease);
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02); /* Simple lift and scale animation */
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--ctp-green, var(--text-color)); /* Example project title color */
+}
+
+.project-tags {
+    margin-bottom: 15px;
+}
+.project-tags span {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    display: inline-block; /* Ensure margins work */
+    margin-bottom: 5px; /* For wrapping */
+}
+
+.project-links a {
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.button-secondary {
+    padding: 8px 15px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.button-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+    text-decoration: none;
+}
+
+
+/* -------------------- */
+/* Skills Section       */
+/* -------------------- */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skills-list li {
+    background-color: var(--card-bg);
+    color: var(--ctp-subtext0, var(--text-color));
+    padding: 10px 20px;
+    border-radius: 20px; /* Pill shape */
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: transform 0.2s ease, background-color var(--transition-speed) var(--transition-ease);
+}
+.skills-list li:hover {
+    transform: translateY(-2px);
+    background-color: var(--ctp-surface0, var(--card-bg)); /* Use a Catppuccin surface */
+}
+
+/* -------------------- */
+/* Contact Section      */
+/* -------------------- */
+#contact {
+    text-align: center;
+}
+#contact p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+}
+.social-links {
+    margin-top: 2rem;
+}
+.social-links a {
+    margin: 0 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.social-links a:hover {
+    color: var(--secondary-accent);
+}
+
+
+/* -------------------- */
+/* Footer               */
+/* -------------------- */
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: var(--ctp-subtext1, var(--text-color));
+    transition: border-color var(--transition-speed) var(--transition-ease),
+                color var(--transition-speed) var(--transition-ease);
+}
+
+/* Responsive adjustments (simple example) */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+
+    nav ul {
+        display: none; /* Simple: hide for mobile, consider a burger menu for real use */
+    }
+    nav .logo {
+        margin-right: auto; /* Push logo to left when menu hidden */
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-pic {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content .tagline { font-size: 1.1rem; }
+    .cta-button { padding: 10px 20px; font-size: 0.9rem; }
+}
