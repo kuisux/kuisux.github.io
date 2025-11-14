@@ -633,7 +633,11 @@
                         <input type="number" id="char-level" placeholder="Level" value="1">
                         <input type="text" id="char-background" placeholder="Background">
                         <input type="text" id="char-alignment" placeholder="Alignment">
-                        <input type="text" id="char-image" placeholder="Image URL">
+                        <input type="text" id="char-image" placeholder="Image URL" oninput="updateImagePreview(this.value)">
+                        <label class="file-input-label">
+                            Upload Image
+                            <input type="file" accept="image/*" onchange="handleImageUpload(event, 'char-image', 'char-preview')">
+                        </label>
                         <img id="char-preview" class="img-preview" style="display: none;">
                     </div>
                     <div>
@@ -921,6 +925,10 @@
             showModal(`
                 <h2>Create NPC</h2>
                 <input type="text" id="npc-name" placeholder="Name">
+                <label class="file-input-label">
+                    Upload Image
+                    <input type="file" accept="image/*" onchange="handleImageUpload(event, 'npc-image')">
+                </label>
                 <input type="text" id="npc-image" placeholder="Image URL">
                 <textarea id="npc-description" rows="3" placeholder="Description"></textarea>
                 <h3>Stats</h3>
@@ -1178,15 +1186,20 @@
                 });
             });
 
-            document.getElementById('char-image').addEventListener('input', (e) => {
-                const preview = document.getElementById('char-preview');
-                if (e.target.value) {
-                    preview.src = e.target.value;
-                    preview.style.display = 'block';
-                } else {
-                    preview.style.display = 'none';
-                }
-            });
+        }
+
+        function updateImagePreview(url, previewId = 'char-preview') {
+            const preview = document.getElementById(previewId);
+            if (url) {
+                preview.src = url;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+        function handleImageUpload(event, inputId, previewId) {
+            updateImagePreview(URL.createObjectURL(event.target.files[0]), previewId);
         }
 
         function saveCharacter() {
@@ -1287,6 +1300,31 @@
                 }
             };
             reader.readAsText(file);
+        }
+
+        function handleImageUpload(event, inputId, previewId) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const dataUrl = e.target.result;
+                document.getElementById(inputId).value = dataUrl;
+                if (previewId) {
+                    updateImagePreview(dataUrl, previewId);
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function updateImagePreview(url, previewId = 'char-preview') {
+            const preview = document.getElementById(previewId);
+            if (url) {
+                preview.src = url;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
         }
 
         // Save/Load Campaign
