@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Izzy's Campaign Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #1e1e2e;
+            --bg-secondary: #181825;
+            --bg-tertiary: #313244;
+            --text-primary: #cdd6f4;
+            --text-secondary: #a6adc8;
+            --accent: #89b4fa;
+            --accent-hover: #b4befe;
+            --border: #45475a;
+            --success: #a6e3a1;
+            --warning: #f9e2af;
+            --error: #f38ba8;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* Theme Variables */
+        body.catppuccin-dark {
+            --bg-primary: #1e1e2e;
+            --bg-secondary: #181825;
+            --bg-tertiary: #313244;
+            --text-primary: #cdd6f4;
+            --text-secondary: #a6adc8;
+            --accent: #89b4fa;
+            --accent-hover: #b4befe;
+            --border: #45475a;
+        }
+
+        body.catppuccin-light {
+            --bg-primary: #eff1f5;
+            --bg-secondary: #e6e9ef;
+            --bg-tertiary: #dce0e8;
+            --text-primary: #4c4f69;
+            --text-secondary: #5c5f77;
+            --accent: #1e66f5;
+            --accent-hover: #7287fd;
+            --border: #9ca0b0;
+        }
+
+        body.nord-dark {
+            --bg-primary: #2e3440;
+            --bg-secondary: #3b4252;
+            --bg-tertiary: #434c5e;
+            --text-primary: #eceff4;
+            --text-secondary: #d8dee9;
+            --accent: #88c0d0;
+            --accent-hover: #8fbcbb;
+            --border: #4c566a;
+        }
+
+        body.nord-light {
+            --bg-primary: #eceff4;
+            --bg-secondary: #e5e9f0;
+            --bg-tertiary: #d8dee9;
+            --text-primary: #2e3440;
+            --text-secondary: #3b4252;
+            --accent: #5e81ac;
+            --accent-hover: #81a1c1;
+            --border: #4c566a;
+        }
+
+        body.gruvbox-dark {
+            --bg-primary: #282828;
+            --bg-secondary: #1d2021;
+            --bg-tertiary: #3c3836;
+            --text-primary: #ebdbb2;
+            --text-secondary: #d5c4a1;
+            --accent: #83a598;
+            --accent-hover: #8ec07c;
+            --border: #504945;
+        }
+
+        body.gruvbox-light {
+            --bg-primary: #fbf1c7;
+            --bg-secondary: #f9f5d7;
+            --bg-tertiary: #ebdbb2;
+            --text-primary: #282828;
+            --text-secondary: #3c3836;
+            --accent: #458588;
+            --accent-hover: #689d6a;
+            --border: #928374;
+        }
+
+        body.everforest-dark {
+            --bg-primary: #2d353b;
+            --bg-secondary: #232a2e;
+            --bg-tertiary: #3d484d;
+            --text-primary: #d3c6aa;
+            --text-secondary: #a7c080;
+            --accent: #7fbbb3;
+            --accent-hover: #83c092;
+            --border: #475258;
+        }
+
+        body.everforest-light {
+            --bg-primary: #fdf6e3;
+            --bg-secondary: #f4f0d9;
+            --bg-tertiary: #efebd4;
+            --text-primary: #5c6a72;
+            --text-secondary: #708089;
+            --accent: #3a94c5;
+            --accent-hover: #35a77c;
+            --border: #a6b0a0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1em;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px var(--shadow);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px var(--shadow);
+        }
+
+        .card h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        .btn-danger {
+            background: var(--error);
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+
+        input, textarea, select {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: inherit;
+            width: 100%;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(137, 180, 250, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .world-card, .npc-card, .location-card, .player-card {
+            background: var(--bg-tertiary);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
+        }
+
+        .world-card:hover, .npc-card:hover, .location-card:hover, .player-card:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            width: 90%;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dice-roller {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .dice-btn {
+            background: var(--bg-tertiary);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 15px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .dice-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .dice-result {
+            background: var(--bg-tertiary);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 1.5em;
+            text-align: center;
+            border: 2px solid var(--accent);
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: var(--bg-tertiary);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .stat-box label {
+            display: block;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .stat-box input {
+            width: 60px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-tertiary);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .skill-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .img-preview {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border: 2px solid var(--border);
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Easter Egg */
+        .secret-dragon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: dragonFloat 3s ease-in-out infinite;
+        }
+
+        .secret-dragon.visible {
+            opacity: 1;
+        }
+
+        @keyframes dragonFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .konami-success {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            animation: rainbow 2s linear infinite;
+            z-index: 2000;
+            display: none;
+        }
+
+        @keyframes rainbow {
+            0% { color: red; }
+            16% { color: orange; }
+            33% { color: yellow; }
+            50% { color: green; }
+            66% { color: blue; }
+            83% { color: indigo; }
+            100% { color: violet; }
+        }
+
+        .file-input-label {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .file-input-label:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="catppuccin-dark">
+    <div class="container">
+        <header>
+            <h1 onclick="easterEggClick()">🎲 Izzy's Campaign Manager</h1>
+            <nav>
+                <button class="nav-btn active" onclick="showPage('dm')">DM</button>
+                <button class="nav-btn" onclick="showPage('player')">Player</button>
+                <button class="nav-btn" onclick="showPage('settings')">Settings</button>
+            </nav>
+        </header>
+
+        <!-- DM Page -->
+        <div id="dm-page" class="page active">
+            <div class="card">
+                <h2>📚 World Management</h2>
+                <button class="btn" onclick="createWorld()">Create New World</button>
+                <button class="btn btn-success" onclick="saveData()">💾 Save Campaign</button>
+                <label class="file-input-label">
+                    📂 Load Campaign
+                    <input type="file" accept=".json,.xml,.yaml,.yml" onchange="loadData(event)">
+                </label>
+                <div id="worlds-list" class="grid"></div>
+            </div>
+
+            <div id="world-details" style="display: none;">
+                <div class="card">
+                    <h2>🌍 <span id="current-world-name"></span></h2>
+                    <button class="btn" onclick="backToWorlds()">← Back to Worlds</button>
+                    <button class="btn btn-danger" onclick="deleteWorld()">Delete World</button>
+                    
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="showTab('npcs')">NPCs</button>
+                        <button class="tab-btn" onclick="showTab('locations')">Locations</button>
+                        <button class="tab-btn" onclick="showTab('players')">Players</button>
+                        <button class="tab-btn" onclick="showTab('notes')">Notes</button>
+                        <button class="tab-btn" onclick="showTab('dice')">Dice Roller</button>
+                    </div>
+
+                    <div id="npcs-tab" class="tab-content active">
+                        <button class="btn" onclick="createNPC()">Add NPC</button>
+                        <div id="npcs-list" class="grid"></div>
+                    </div>
+
+                    <div id="locations-tab" class="tab-content">
+                        <button class="btn" onclick="createLocation()">Add Location</button>
+                        <div id="locations-list" class="grid"></div>
+                    </div>
+
+                    <div id="players-tab" class="tab-content">
+                        <label class="file-input-label">
+                            Import Player Character
+                            <input type="file" accept=".json" multiple onchange="importPlayers(event)">
+                        </label>
+                        <div id="players-list" class="grid"></div>
+                    </div>
+
+                    <div id="notes-tab" class="tab-content">
+                        <textarea id="world-notes" rows="15" placeholder="Campaign notes..."></textarea>
+                        <button class="btn" onclick="saveWorldNotes()">Save Notes</button>
+                    </div>
+
+                    <div id="dice-tab" class="tab-content">
+                        <div class="dice-roller">
+                            <button class="dice-btn" onclick="rollDice(4)">d4</button>
+                            <button class="dice-btn" onclick="rollDice(6)">d6</button>
+                            <button class="dice-btn" onclick="rollDice(8)">d8</button>
+                            <button class="dice-btn" onclick="rollDice(10)">d10</button>
+                            <button class="dice-btn" onclick="rollDice(12)">d12</button>
+                            <button class="dice-btn" onclick="rollDice(20)">d20</button>
+                            <button class="dice-btn" onclick="rollDice(100)">d100</button>
+                        </div>
+                        <div id="dice-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player Page -->
+        <div id="player-page" class="page">
+            <div class="card">
+                <h2>⚔️ Character Sheet</h2>
+                <button class="btn btn-success" onclick="saveCharacter()">💾 Save Character</button>
+                <label class="file-input-label">
+                    📂 Load Character
+                    <input type="file" accept=".json" onchange="loadCharacter(event)">
+                </label>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Character Info</h3>
+                        <input type="text" id="char-name" placeholder="Character Name">
+                        <input type="text" id="char-race" placeholder="Race">
+                        <input type="text" id="char-class" placeholder="Class">
+                        <input type="number" id="char-level" placeholder="Level" value="1">
+                        <input type="text" id="char-background" placeholder="Background">
+                        <input type="text" id="char-alignment" placeholder="Alignment">
+                        <input type="text" id="char-image" placeholder="Image URL">
+                        <img id="char-preview" class="img-preview" style="display: none;">
+                    </div>
+                    <div>
+                        <h3>Ability Scores</h3>
+                        <div class="stat-grid">
+                            <div class="stat-box">
+                                <label>STR</label>
+                                <input type="number" id="stat-str" value="10">
+                                <div id="mod-str">+0</div>
+                            </div>
+                            <div class="stat-box">
+                                <label>DEX</label>
+                                <input type="number" id="stat-dex" value="10">
+                                <div id="mod-dex">+0</div>
+                            </div>
+                            <div class="stat-box">
+                                <label>CON</label>
+                                <input type="number" id="stat-con" value="10">
+                                <div id="mod-con">+0</div>
+                            </div>
+                            <div class="stat-box">
+                                <label>INT</label>
+                                <input type="number" id="stat-int" value="10">
+                                <div id="mod-int">+0</div>
+                            </div>
+                            <div class="stat-box">
+                                <label>WIS</label>
+                                <input type="number" id="stat-wis" value="10">
+                                <div id="mod-wis">+0</div>
+                            </div>
+                            <div class="stat-box">
+                                <label>CHA</label>
+                                <input type="number" id="stat-cha" value="10">
+                                <div id="mod-cha">+0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h3>Combat Stats</h3>
+                        <input type="number" id="char-hp-max" placeholder="Max HP">
+                        <input type="number" id="char-hp-current" placeholder="Current HP">
+                        <input type="number" id="char-ac" placeholder="Armor Class">
+                        <input type="number" id="char-initiative" placeholder="Initiative Bonus">
+                        <input type="number" id="char-speed" placeholder="Speed">
+                        <input type="number" id="char-proficiency" placeholder="Proficiency Bonus" value="2">
+                    </div>
+                    <div>
+                        <h3>Skills</h3>
+                        <div class="skills-grid" id="skills-list"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Equipment & Features</h3>
+                    <textarea id="char-equipment" rows="5" placeholder="Equipment, weapons, armor..."></textarea>
+                    <textarea id="char-features" rows="5" placeholder="Features, traits, abilities..."></textarea>
+                </div>
+
+                <div>
+                    <h3>Character Notes</h3>
+                    <textarea id="char-notes" rows="10" placeholder="Backstory, personality, goals..."></textarea>
+                </div>
+
+                <div>
+                    <h3>Dice Roller</h3>
+                    <div class="dice-roller">
+                        <button class="dice-btn" onclick="rollDice(4)">d4</button>
+                        <button class="dice-btn" onclick="rollDice(6)">d6</button>
+                        <button class="dice-btn" onclick="rollDice(8)">d8</button>
+                        <button class="dice-btn" onclick="rollDice(10)">d10</button>
+                        <button class="dice-btn" onclick="rollDice(12)">d12</button>
+                        <button class="dice-btn" onclick="rollDice(20)">d20</button>
+                        <button class="dice-btn" onclick="rollDice(100)">d100</button>
+                    </div>
+                    <div id="player-dice-result"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Page -->
+        <div id="settings-page" class="page">
+            <div class="card">
+                <h2>⚙️ Settings</h2>
+                
+                <div>
+                    <h3>Display Name</h3>
+                    <input type="text" id="user-name" placeholder="Your Name">
+                    <button class="btn" onclick="saveName()">Save Name</button>
+                </div>
+
+                <div>
+                    <h3>Theme</h3>
+                    <select id="theme-select" onchange="changeTheme()">
+                        <option value="catppuccin-dark">Catppuccin Dark</option>
+                        <option value="catppuccin-light">Catppuccin Light</option>
+                        <option value="nord-dark">Nord Dark</option>
+                        <option value="nord-light">Nord Light</option>
+                        <option value="gruvbox-dark">Gruvbox Dark</option>
+                        <option value="gruvbox-light">Gruvbox Light</option>
+                        <option value="everforest-dark">Everforest Dark</option>
+                        <option value="everforest-light">Everforest Light</option>
+                    </select>
+                </div>
+
+                <div>
+                    <h3>Font</h3>
+                    <select id="font-select" onchange="changeFont()">
+                        <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
+                        <option value="'Monaspace Neon', monospace">Monaspace</option>
+                        <option value="'Comic Sans MS', cursive">Comic Sans</option>
+                        <option value="'Courier New', monospace">Courier New</option>
+                        <option value="'Georgia', serif">Georgia</option>
+                        <option value="'Arial', sans-serif">Arial</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal" class="modal">
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+
+    <!-- Easter Eggs -->
+    <div class="secret-dragon" id="dragon">🐉</div>
+    <div class="konami-success" id="konami">🎉 CRITICAL HIT! 🎉</div>
+
+    <script>
+        // Data Storage
+        let campaignData = {
+            worlds: []
+        };
+        let currentWorld = null;
+        let characterData = {};
+        let settings = {
+            name: 'Adventurer',
+            theme: 'catppuccin-dark',
+            font: "'JetBrains Mono', monospace"
+        };
+
+        // D&D 5e Skills
+        const skills = [
+            { name: 'Acrobatics', ability: 'DEX' },
+            { name: 'Animal Handling', ability: 'WIS' },
+            { name: 'Arcana', ability: 'INT' },
+            { name: 'Athletics', ability: 'STR' },
+            { name: 'Deception', ability: 'CHA' },
+            { name: 'History', ability: 'INT' },
+            { name: 'Insight', ability: 'WIS' },
+            { name: 'Intimidation', ability: 'CHA' },
+            { name: 'Investigation', ability: 'INT' },
+            { name: 'Medicine', ability: 'WIS' },
+            { name: 'Nature', ability: 'INT' },
+            { name: 'Perception', ability: 'WIS' },
+            { name: 'Performance', ability: 'CHA' },
+            { name: 'Persuasion', ability: 'CHA' },
+            { name: 'Religion', ability: 'INT' },
+            { name: 'Sleight of Hand', ability: 'DEX' },
+            { name: 'Stealth', ability: 'DEX' },
+            { name: 'Survival', ability: 'WIS' }
+        ];
+
+        // Initialize
+        window.onload = () => {
+            loadSettings();
+            renderSkills();
+            setupStatListeners();
+            loadFromLocalStorage();
+        };
+
+        function loadSettings() {
+            const saved = localStorage.getItem('dnd-settings');
+            if (saved) {
+                settings = JSON.parse(saved);
+                document.getElementById('user-name').value = settings.name;
+                document.getElementById('theme-select').value = settings.theme;
+                document.getElementById('font-select').value = settings.font;
+                document.body.className = settings.theme;
+                document.body.style.fontFamily = settings.font;
+            }
+        }
+
+        function saveSettings() {
+            localStorage.setItem('dnd-settings', JSON.stringify(settings));
+        }
+
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('dnd-campaign');
+            if (saved) {
+                campaignData = JSON.parse(saved);
+                renderWorlds();
+            }
+        }
+
+        function saveToLocalStorage() {
+            localStorage.setItem('dnd-campaign', JSON.stringify(campaignData));
+        }
+
+        // Navigation
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(page + '-page').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function showTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tab + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // World Management
+        function createWorld() {
+            const name = prompt('Enter world name:');
+            if (name) {
+                const world = {
+                    id: Date.now(),
+                    name: name,
+                    npcs: [],
+                    locations: [],
+                    players: [],
+                    notes: ''
+                };
+                campaignData.worlds.push(world);
+                renderWorlds();
+                saveToLocalStorage();
+            }
+        }
+
+        function renderWorlds() {
+            const list = document.getElementById('worlds-list');
+            list.innerHTML = '';
+            campaignData.worlds.forEach(world => {
+                const card = document.createElement('div');
+                card.className = 'world-card';
+                card.innerHTML = `
+                    <h3>🌍 ${world.name}</h3>
+                    <p>${world.npcs.length} NPCs | ${world.locations.length} Locations | ${world.players.length} Players</p>
+                `;
+                card.onclick = () => openWorld(world.id);
+                list.appendChild(card);
+            });
+        }
+
+        function openWorld(id) {
+            currentWorld = campaignData.worlds.find(w => w.id === id);
+            document.getElementById('worlds-list').parentElement.style.display = 'none';
+            document.getElementById('world-details').style.display = 'block';
+            document.getElementById('current-world-name').textContent = currentWorld.name;
+            document.getElementById('world-notes').value = currentWorld.notes || '';
+            renderNPCs();
+            renderLocations();
+            renderPlayers();
+        }
+
+        function backToWorlds() {
+            document.getElementById('worlds-list').parentElement.style.display = 'block';
+            document.getElementById('world-details').style.display = 'none';
+            currentWorld = null;
+        }
+
+        function deleteWorld() {
+            if (confirm('Delete this world? This cannot be undone!')) {
+                campaignData.worlds = campaignData.worlds.filter(w => w.id !== currentWorld.id);
+                backToWorlds();
+                renderWorlds();
+                saveToLocalStorage();
+            }
+        }
+
+        function saveWorldNotes() {
+            currentWorld.notes = document.getElementById('world-notes').value;
+            saveToLocalStorage();
+            alert('Notes saved!');
+        }
+
+        // NPC Management
+        function createNPC() {
+            showModal(`
+                <h2>Create NPC</h2>
+                <input type="text" id="npc-name" placeholder="Name">
+                <input type="text" id="npc-image" placeholder="Image URL">
+                <textarea id="npc-description" rows="3" placeholder="Description"></textarea>
+                <h3>Stats</h3>
+                <div class="stat-grid">
+                    <div><label>STR</label><input type="number" id="npc-str" value="10"></div>
+                    <div><label>DEX</label><input type="number" id="npc-dex" value="10"></div>
+                    <div><label>CON</label><input type="number" id="npc-con" value="10"></div>
+                    <div><label>INT</label><input type="number" id="npc-int" value="10"></div>
+                    <div><label>WIS</label><input type="number" id="npc-wis" value="10"></div>
+                    <div><label>CHA</label><input type="number" id="npc-cha" value="10"></div>
+                </div>
+                <input type="number" id="npc-ac" placeholder="AC" value="10">
+                <input type="number" id="npc-hp" placeholder="HP" value="10">
+                <textarea id="npc-notes" rows="5" placeholder="Notes, abilities, personality..."></textarea>
+                <button class="btn" onclick="saveNPC()">Save NPC</button>
+                <button class="btn btn-danger" onclick="closeModal()">Cancel</button>
+            `);
+        }
+
+        function saveNPC() {
+            const npc = {
+                id: Date.now(),
+                name: document.getElementById('npc-name').value,
+                image: document.getElementById('npc-image').value,
+                description: document.getElementById('npc-description').value,
+                stats: {
+                    str: document.getElementById('npc-str').value,
+                    dex: document.getElementById('npc-dex').value,
+                    con: document.getElementById('npc-con').value,
+                    int: document.getElementById('npc-int').value,
+                    wis: document.getElementById('npc-wis').value,
+                    cha: document.getElementById('npc-cha').value,
+                    ac: document.getElementById('npc-ac').value,
+                    hp: document.getElementById('npc-hp').value
+                },
+                notes: document.getElementById('npc-notes').value
+            };
+            currentWorld.npcs.push(npc);
+            closeModal();
+            renderNPCs();
+            saveToLocalStorage();
+        }
+
+        function renderNPCs() {
+            const list = document.getElementById('npcs-list');
+            list.innerHTML = '';
+            currentWorld.npcs.forEach(npc => {
+                const card = document.createElement('div');
+                card.className = 'npc-card';
+                card.innerHTML = `
+                    ${npc.image ? `<img src="${npc.image}" class="img-preview">` : ''}
+                    <h3>${npc.name}</h3>
+                    <p>${npc.description}</p>
+                    <small>AC: ${npc.stats.ac} | HP: ${npc.stats.hp}</small>
+                `;
+                card.onclick = () => viewNPC(npc.id);
+                list.appendChild(card);
+            });
+        }
+
+        function viewNPC(id) {
+            const npc = currentWorld.npcs.find(n => n.id === id);
+            showModal(`
+                <h2>${npc.name}</h2>
+                ${npc.image ? `<img src="${npc.image}" class="img-preview">` : ''}
+                <p>${npc.description}</p>
+                <div class="stat-grid">
+                    <div>STR: ${npc.stats.str}</div>
+                    <div>DEX: ${npc.stats.dex}</div>
+                    <div>CON: ${npc.stats.con}</div>
+                    <div>INT: ${npc.stats.int}</div>
+                    <div>WIS: ${npc.stats.wis}</div>
+                    <div>CHA: ${npc.stats.cha}</div>
+                </div>
+                <p><strong>AC:</strong> ${npc.stats.ac} | <strong>HP:</strong> ${npc.stats.hp}</p>
+                <p><strong>Notes:</strong></p>
+                <p>${npc.notes}</p>
+                <button class="btn btn-danger" onclick="deleteNPC(${npc.id})">Delete</button>
+                <button class="btn" onclick="closeModal()">Close</button>
+            `);
+        }
+
+        function deleteNPC(id) {
+            if (confirm('Delete this NPC?')) {
+                currentWorld.npcs = currentWorld.npcs.filter(n => n.id !== id);
+                closeModal();
+                renderNPCs();
+                saveToLocalStorage();
+            }
+        }
+
+        // Location Management
+        function createLocation() {
+            showModal(`
+                <h2>Create Location</h2>
+                <input type="text" id="loc-name" placeholder="Location Name">
+                <input type="text" id="loc-image" placeholder="Image URL">
+                <textarea id="loc-description" rows="10" placeholder="Description, features, inhabitants..."></textarea>
+                <button class="btn" onclick="saveLocation()">Save Location</button>
+                <button class="btn btn-danger" onclick="closeModal()">Cancel</button>
+            `);
+        }
+
+        function saveLocation() {
+            const location = {
+                id: Date.now(),
+                name: document.getElementById('loc-name').value,
+                image: document.getElementById('loc-image').value,
+                description: document.getElementById('loc-description').value
+            };
+            currentWorld.locations.push(location);
+            closeModal();
+            renderLocations();
+            saveToLocalStorage();
+        }
+
+        function renderLocations() {
+            const list = document.getElementById('locations-list');
+            list.innerHTML = '';
+            currentWorld.locations.forEach(loc => {
+                const card = document.createElement('div');
+                card.className = 'location-card';
+                card.innerHTML = `
+                    ${loc.image ? `<img src="${loc.image}" class="img-preview">` : ''}
+                    <h3>${loc.name}</h3>
+                    <p>${loc.description.substring(0, 100)}...</p>
+                `;
+                card.onclick = () => viewLocation(loc.id);
+                list.appendChild(card);
+            });
+        }
+
+        function viewLocation(id) {
+            const loc = currentWorld.locations.find(l => l.id === id);
+            showModal(`
+                <h2>${loc.name}</h2>
+                ${loc.image ? `<img src="${loc.image}" class="img-preview">` : ''}
+                <p>${loc.description}</p>
+                <button class="btn btn-danger" onclick="deleteLocation(${loc.id})">Delete</button>
+                <button class="btn" onclick="closeModal()">Close</button>
+            `);
+        }
+
+        function deleteLocation(id) {
+            if (confirm('Delete this location?')) {
+                currentWorld.locations = currentWorld.locations.filter(l => l.id !== id);
+                closeModal();
+                renderLocations();
+                saveToLocalStorage();
+            }
+        }
+
+        // Player Management
+        function importPlayers(event) {
+            const files = event.target.files;
+            for (let file of files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const player = JSON.parse(e.target.result);
+                        currentWorld.players.push(player);
+                        renderPlayers();
+                        saveToLocalStorage();
+                    } catch (err) {
+                        alert('Error loading character file');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        function renderPlayers() {
+            const list = document.getElementById('players-list');
+            list.innerHTML = '';
+            currentWorld.players.forEach(player => {
+                const card = document.createElement('div');
+                card.className = 'player-card';
+                card.innerHTML = `
+                    ${player.image ? `<img src="${player.image}" class="img-preview">` : ''}
+                    <h3>${player.name}</h3>
+                    <p>${player.race} ${player.class} - Level ${player.level}</p>
+                    <p>HP: ${player.hp.current}/${player.hp.max} | AC: ${player.ac}</p>
+                `;
+                card.onclick = () => viewPlayer(player);
+                list.appendChild(card);
+            });
+        }
+
+        function viewPlayer(player) {
+            showModal(`
+                <h2>${player.name}</h2>
+                ${player.image ? `<img src="${player.image}" class="img-preview">` : ''}
+                <p><strong>${player.race} ${player.class}</strong> - Level ${player.level}</p>
+                <p><strong>Background:</strong> ${player.background}</p>
+                <p><strong>Alignment:</strong> ${player.alignment}</p>
+                <div class="stat-grid">
+                    <div>STR: ${player.stats.str}</div>
+                    <div>DEX: ${player.stats.dex}</div>
+                    <div>CON: ${player.stats.con}</div>
+                    <div>INT: ${player.stats.int}</div>
+                    <div>WIS: ${player.stats.wis}</div>
+                    <div>CHA: ${player.stats.cha}</div>
+                </div>
+                <p><strong>HP:</strong> ${player.hp.current}/${player.hp.max} | <strong>AC:</strong> ${player.ac}</p>
+                <p><strong>Notes:</strong></p>
+                <p>${player.notes}</p>
+                <button class="btn btn-danger" onclick="removePlayer('${player.name}')">Remove</button>
+                <button class="btn" onclick="closeModal()">Close</button>
+            `);
+        }
+
+        function removePlayer(name) {
+            if (confirm('Remove this player from the world?')) {
+                currentWorld.players = currentWorld.players.filter(p => p.name !== name);
+                closeModal();
+                renderPlayers();
+                saveToLocalStorage();
+            }
+        }
+
+        // Dice Roller
+        function rollDice(sides) {
+            const result = Math.floor(Math.random() * sides) + 1;
+            const container = event.target.closest('.page').querySelector('[id$="dice-result"]') || 
+                            event.target.closest('.tab-content').querySelector('#dice-result');
+            
+            if (container) {
+                container.innerHTML = `<div class="dice-result">🎲 Rolled d${sides}: <strong>${result}</strong></div>`;
+            }
+        }
+
+        // Character Sheet
+        function renderSkills() {
+            const container = document.getElementById('skills-list');
+            container.innerHTML = '';
+            skills.forEach(skill => {
+                const div = document.createElement('div');
+                div.className = 'skill-item';
+                div.innerHTML = `
+                    <input type="checkbox" id="skill-${skill.name.replace(' ', '-')}" value="${skill.name}">
+                    <label for="skill-${skill.name.replace(' ', '-')}">${skill.name} (${skill.ability})</label>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function setupStatListeners() {
+            ['str', 'dex', 'con', 'int', 'wis', 'cha'].forEach(stat => {
+                const input = document.getElementById('stat-' + stat);
+                input.addEventListener('input', () => {
+                    const value = parseInt(input.value) || 10;
+                    const modifier = Math.floor((value - 10) / 2);
+                    document.getElementById('mod-' + stat).textContent = 
+                        (modifier >= 0 ? '+' : '') + modifier;
+                });
+            });
+
+            document.getElementById('char-image').addEventListener('input', (e) => {
+                const preview = document.getElementById('char-preview');
+                if (e.target.value) {
+                    preview.src = e.target.value;
+                    preview.style.display = 'block';
+                } else {
+                    preview.style.display = 'none';
+                }
+            });
+        }
+
+        function saveCharacter() {
+            const character = {
+                name: document.getElementById('char-name').value,
+                race: document.getElementById('char-race').value,
+                class: document.getElementById('char-class').value,
+                level: document.getElementById('char-level').value,
+                background: document.getElementById('char-background').value,
+                alignment: document.getElementById('char-alignment').value,
+                image: document.getElementById('char-image').value,
+                stats: {
+                    str: document.getElementById('stat-str').value,
+                    dex: document.getElementById('stat-dex').value,
+                    con: document.getElementById('stat-con').value,
+                    int: document.getElementById('stat-int').value,
+                    wis: document.getElementById('stat-wis').value,
+                    cha: document.getElementById('stat-cha').value
+                },
+                hp: {
+                    max: document.getElementById('char-hp-max').value,
+                    current: document.getElementById('char-hp-current').value
+                },
+                ac: document.getElementById('char-ac').value,
+                initiative: document.getElementById('char-initiative').value,
+                speed: document.getElementById('char-speed').value,
+                proficiency: document.getElementById('char-proficiency').value,
+                skills: Array.from(document.querySelectorAll('#skills-list input:checked')).map(cb => cb.value),
+                equipment: document.getElementById('char-equipment').value,
+                features: document.getElementById('char-features').value,
+                notes: document.getElementById('char-notes').value
+            };
+
+            const dataStr = JSON.stringify(character, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+            const exportFileDefaultName = `${character.name || 'character'}.json`;
+
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+
+            characterData = character;
+            localStorage.setItem('dnd-character', JSON.stringify(character));
+            alert('Character saved!');
+        }
+
+        function loadCharacter(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const character = JSON.parse(e.target.result);
+                    document.getElementById('char-name').value = character.name || '';
+                    document.getElementById('char-race').value = character.race || '';
+                    document.getElementById('char-class').value = character.class || '';
+                    document.getElementById('char-level').value = character.level || 1;
+                    document.getElementById('char-background').value = character.background || '';
+                    document.getElementById('char-alignment').value = character.alignment || '';
+                    document.getElementById('char-image').value = character.image || '';
+                    
+                    if (character.image) {
+                        document.getElementById('char-preview').src = character.image;
+                        document.getElementById('char-preview').style.display = 'block';
+                    }
+
+                    document.getElementById('stat-str').value = character.stats.str;
+                    document.getElementById('stat-dex').value = character.stats.dex;
+                    document.getElementById('stat-con').value = character.stats.con;
+                    document.getElementById('stat-int').value = character.stats.int;
+                    document.getElementById('stat-wis').value = character.stats.wis;
+                    document.getElementById('stat-cha').value = character.stats.cha;
+
+                    ['str', 'dex', 'con', 'int', 'wis', 'cha'].forEach(stat => {
+                        const input = document.getElementById('stat-' + stat);
+                        input.dispatchEvent(new Event('input'));
+                    });
+
+                    document.getElementById('char-hp-max').value = character.hp.max;
+                    document.getElementById('char-hp-current').value = character.hp.current;
+                    document.getElementById('char-ac').value = character.ac;
+                    document.getElementById('char-initiative').value = character.initiative || '';
+                    document.getElementById('char-speed').value = character.speed || '';
+                    document.getElementById('char-proficiency').value = character.proficiency || 2;
+
+                    document.querySelectorAll('#skills-list input[type="checkbox"]').forEach(cb => {
+                        cb.checked = character.skills && character.skills.includes(cb.value);
+                    });
+
+                    document.getElementById('char-equipment').value = character.equipment || '';
+                    document.getElementById('char-features').value = character.features || '';
+                    document.getElementById('char-notes').value = character.notes || '';
+
+                    characterData = character;
+                    alert('Character loaded!');
+                } catch (err) {
+                    alert('Error loading character file');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Save/Load Campaign
+        function saveData() {
+            const dataStr = JSON.stringify(campaignData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+            const exportFileDefaultName = 'campaign.json';
+
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+        }
+
+        function loadData(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    campaignData = JSON.parse(e.target.result);
+                    renderWorlds();
+                    saveToLocalStorage();
+                    alert('Campaign loaded!');
+                } catch (err) {
+                    alert('Error loading campaign file');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Settings
+        function saveName() {
+            settings.name = document.getElementById('user-name').value;
+            saveSettings();
+            alert('Name saved!');
+        }
+
+        function changeTheme() {
+            settings.theme = document.getElementById('theme-select').value;
+            document.body.className = settings.theme;
+            saveSettings();
+        }
+
+        function changeFont() {
+            settings.font = document.getElementById('font-select').value;
+            document.body.style.fontFamily = settings.font;
+            saveSettings();
+        }
+
+        // Modal
+        function showModal(content) {
+            document.getElementById('modal-content').innerHTML = content;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        // Easter Eggs
+        let clickCount = 0;
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+        function easterEggClick() {
+            clickCount++;
+            if (clickCount === 20) {
+                document.getElementById('dragon').classList.add('visible');
+            }
+        }
+
+        document.getElementById('dragon').addEventListener('click', () => {
+            const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink'];
+            document.body.style.transition = 'background 0.5s';
+            document.body.style.background = colors[Math.floor(Math.random() * colors.length)];
+            setTimeout(() => {
+                document.body.style.background = '';
+            }, 1000);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            if (konamiCode.length > 10) konamiCode.shift();
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                const konami = document.getElementById('konami');
+                konami.style.display = 'block';
+                setTimeout(() => {
+                    konami.style.display = 'none';
+                }, 3000);
+                konamiCode = [];
+            }
+        });
+    </script>
+</body>
+</html>
