@@ -1,0 +1,114 @@
+/* Catppuccin Mocha Theme */
+:root {
+    --rosewater: #f5e0dc;
+    --flamingo: #f2cdcd;
+    --pink: #f5c2e7;
+    --mauve: #cba6f7;
+    --red: #f38ba8;
+    --maroon: #eba0ac;
+    --peach: #fab387;
+    --yellow: #f9e2af;
+    --green: #a6e3a1;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+    --sapphire: #74c7ec;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay2: #9399b2;
+    --overlay1: #7f849c;
+    --overlay0: #6c7086;
+    --surface2: #585b70;
+    --surface1: #45475a;
+    --surface0: #313244;
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+}
+
+body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.title {
+    font-size: 3rem;
+    color: var(--mauve);
+    margin-bottom: 2rem;
+}
+
+.word-container {
+    background-color: var(--surface0);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.japanese-word {
+    font-size: 4rem;
+    color: var(--pink);
+    margin: 0;
+}
+
+.romaji {
+    font-size: 2rem;
+    color: var(--lavender);
+    margin: 0.5rem 0;
+}
+
+.english-translation {
+    font-size: 1.5rem;
+    color: var(--teal);
+    margin-top: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Easter Egg Animation */
+.konami-animation {
+    animation: rainbow 2s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { color: var(--red); }
+    15% { color: var(--peach); }
+    30% { color: var(--yellow); }
+    45% { color: var(--green); }
+    60% { color: var(--teal); }
+    75% { color: var(--blue); }
+    90% { color: var(--mauve); }
+    100% { color: var(--red); }
+}
