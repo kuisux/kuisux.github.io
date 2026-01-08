@@ -10,14 +10,14 @@
 :root {
   color-scheme: dark;
 
-  --background-color: #1e1e2e;
-  --accent-color: #fab387; 
-  --accent-color-2: #f5c2a1; 
-  --text-color: #cdd6f4; 
-  --mauve-color: #cba6f7; 
+  --background-color: #191724;
+  --accent-color: #f6c177; 
+  --accent-color-2: #ebbcba; 
+  --text-color: #e0def4; 
+  --mauve-color: #c4a7e7; 
   --muted-text-color: #8bd5ca;
   --hover-color: #f9e2af; 
-  --link-color: #cba6f7; 
+  --link-color: #ebbcba; 
 }
 
 img {
